@@ -5,8 +5,10 @@ namespace Global
 {
     public class PlayerData : MonoBehaviour
     {
+        public float MaxHp { get; private set; }
         public float Hp { get; private set; }
         public int Attacks { get; private set; }
+        public int AttackDamage { get; private set; }
         public int MagicShots { get; private set; }
         public int Dodges { get; private set; }
         public int Score { get; private set; }
@@ -17,8 +19,10 @@ namespace Global
 
         private void Awake()
         {
+            MaxHp = 100;
             Hp = 100;
             Attacks = 5;
+            AttackDamage = 20;
             MagicShots = 3;
             Dodges = 5;
             Score = 0;

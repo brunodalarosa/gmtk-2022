@@ -15416,6 +15416,7 @@ MonoBehaviour:
   _enemyMovement: {fileID: 30282768347719418}
   _enemyAttack: {fileID: 622740161}
   _enemyData: {fileID: 4142886360971221398}
+  _damageable: {fileID: 5814728871830640643}
 --- !u!65 &7922470852759017879
 BoxCollider:
   m_ObjectHideFlags: 0

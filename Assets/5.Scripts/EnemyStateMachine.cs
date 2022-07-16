@@ -1,3 +1,4 @@
+using _5.Scripts.Gameplay;
 using UnityEngine;
 
 namespace _5.Scripts
@@ -8,16 +9,20 @@ namespace _5.Scripts
         {
             Walking,
             Attacking,
-            Dying
+            Dead
         }
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private EnemyAttack _enemyAttack;
         [SerializeField] private EnemyData _enemyData;
+        [SerializeField] private Damageable _damageable;
         
         public State CurrentState { get; private set; }
 
         private void FixedUpdate()
         {
+            if (_damageable.dead)
+                ChangeState(State.Dead);
+            
             switch (CurrentState)
             {
                 case State.Walking:
@@ -37,7 +42,7 @@ namespace _5.Scripts
                         ChangeState(State.Walking);
                     break;
                 
-                case State.Dying:
+                case State.Dead:
                     
                     break;
                 
@@ -57,7 +62,7 @@ namespace _5.Scripts
                     _enemyAttack.Attack();
                     // Start attack
                     break;
-                case State.Dying:
+                case State.Dead:
                     break;
                 default:
                     break;

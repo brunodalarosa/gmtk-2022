@@ -32,13 +32,13 @@ namespace _5.Scripts
             switch (CurrentState)
             {
                 case State.Walking:
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButton(0))
                     {
                         ChangeState(State.Attacking);
                         return;
                     }
                     
-                    if (Input.GetMouseButtonDown(1))
+                    if (Input.GetMouseButton(1))
                     {
                         ChangeState(State.Casting);
                         return;
@@ -46,7 +46,7 @@ namespace _5.Scripts
 
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
-                        ChangeState(State.Attacking);
+                        ChangeState(State.Dodging);
                         return;
                     }
                     

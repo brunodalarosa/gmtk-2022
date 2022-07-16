@@ -29,8 +29,8 @@ namespace _5.Scripts
 
         public void ClosePauseMenu()
         {
-            pauseMenuPanel.gameObject.SetActive(false);
             Time.timeScale = 1f;
+            pauseMenuPanel.gameObject.SetActive(false);
         }
     }
 }

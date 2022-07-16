@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using _5.Scripts.Gameplay;
+using Global;
 using UnityEngine;
 
-public class DamageOnContact : MonoBehaviour
+namespace _5.Scripts.Gameplay
 {
-    public int damage;
-    public bool randomizeId = true;
-    public int id;
-
-    private void Awake()
+    public class DamageOnContact : MonoBehaviour
     {
-        if (randomizeId)
-            id = Random.Range(0, 1000);
-    }
+        [SerializeField] private PlayerData _playerData;
+        public bool randomizeId = true;
+        public int id;
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.GetComponentInChildren<Damageable>())
+        private void Awake()
         {
-            other.gameObject.GetComponentInChildren<Damageable>().Damage(damage, id);
+            if (randomizeId)
+                id = Random.Range(0, 1000);
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.GetComponentInChildren<Damageable>())
+            {
+                other.gameObject.GetComponentInChildren<Damageable>().Damage(_playerData.AttackDamage, id);
+            }
         }
     }
 }
