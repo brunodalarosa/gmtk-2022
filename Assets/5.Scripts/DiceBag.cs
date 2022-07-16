@@ -1,13 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Global
 {
-    public class DiceBag : MonoBehaviour
+    public class DiceBag
     {
-        [field: SerializeField] private RectTransform ContentRect { get; set; }
-        [field: SerializeField] private Dice DicePrefab { get; set; }
+        public int DiceQtd => Dices.Count;
 
         private List<Dice> Dices { get; }
 
@@ -16,35 +14,36 @@ namespace Global
             Dices = new List<Dice>();
         }
 
-        public void AddD6()
+        public void AddNewDice(DiceType diceType)
         {
-            AddNewDice(DiceType.D6);
+            var newDice = new Dice(diceType);
+            Dices.Add(newDice);
+            DiceBagView.instance.AddDice(newDice);
         }
         
-        public void RemoveD6()
+        public Dice GetDiceOfType(DiceType type)
         {
-            RemoveDice(DiceType.D6);
-        }
-
-        private void AddNewDice(DiceType diceType)
-        {
-            var newDice = Instantiate(DicePrefab, ContentRect, false);
-            newDice.Init(diceType);
-            Dices.Add(newDice);
-        }
-
-        private void RemoveDice(DiceType type)
-        {
-            var foundDice = Dices.Find(dice => dice.Type == type);
+            var foundDice = Dices.Find(dice1 => dice1.Type == type);
 
             if (foundDice == null)
             {
                 throw new InvalidOperationException($"TENTANDO REMOVER {type} QUE NÃO EXISTE IIIH");
             }
 
-            Dices.Remove(foundDice);
-            Destroy(foundDice);
+            return foundDice;
         }
 
+        public void RemoveDice(Dice dice)
+        {
+            var foundDice = Dices.Find(dice1 => dice1 == dice);
+
+            if (foundDice == null)
+            {
+                throw new InvalidOperationException($"TENTANDO REMOVER {dice.Type} QUE NÃO EXISTE IIIH");
+            }
+
+            Dices.Remove(foundDice);
+            DiceBagView.instance.RemoveDice(foundDice.Type);
+        }
     }
 }

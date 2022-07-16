@@ -1,12 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Global
 {
-    public class Dice : MonoBehaviour
+    public class Dice
     {
-        public DiceType Type { get; private set; }
+        public DiceType Type { get; }
 
-        public void Init(DiceType type)
+        public Dice(DiceType type)
         {
             Type = type;
         }
@@ -23,7 +23,7 @@ namespace Global
             }
         }
     }
-
+    
     public enum DiceType
     {
         D6 = 1
