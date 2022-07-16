@@ -10,6 +10,8 @@ namespace Global
         public static LevelController instance;
 
         [field: Header("User Interface")]
+        
+        [field: SerializeField] private Canvas Canvas { get; set; }
         [field: SerializeField] private GameObject DebugButtonParent { get; set; }
         [field: SerializeField] private Button DebugGetAd6Button { get; set; }
 
@@ -40,14 +42,12 @@ namespace Global
             RollDiceMenuOverlay.Init(PlayerData);
             
             DebugButtonParent.gameObject.SetActive(false);
-            RollDiceMenuOverlay.gameObject.SetActive(true);
-            GeneralUi.transform.SetParent(RollDiceMenuOverlay.transform, true);
+            GeneralUi.transform.SetParent(RollDiceMenuOverlay.Content.transform, true);
         }
 
         public void LeaveDiceMenu()
         {
-            GeneralUi.transform.SetParent(gameObject.transform, true);
-            RollDiceMenuOverlay.gameObject.SetActive(false);
+            GeneralUi.transform.SetParent(Canvas.transform, true);
             DebugButtonParent.gameObject.SetActive(true);
             
             UpdateDiceMenuButtonState(PlayerData);

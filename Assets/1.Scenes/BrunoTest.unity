@@ -284,13 +284,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288205775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1526763188}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -541,13 +541,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405259076}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1680371678}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -1052,15 +1052,14 @@ GameObject:
   m_Component:
   - component: {fileID: 507057519}
   - component: {fileID: 507057521}
-  - component: {fileID: 507057520}
   - component: {fileID: 507057522}
   m_Layer: 5
-  m_Name: DiceMenuOverlay
+  m_Name: DiceMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &507057519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1073,14 +1072,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 822909977}
-  - {fileID: 2124994799}
-  - {fileID: 1501814270}
-  - {fileID: 1491719919}
-  - {fileID: 405259077}
-  - {fileID: 989989657}
-  - {fileID: 288205776}
-  - {fileID: 557774106}
+  - {fileID: 645361502}
   m_Father: {fileID: 2091884399}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1089,36 +1081,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &507057520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507057518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.6033864, g: 0.2980392, b: 1, a: 0.74509805}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &507057521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1139,6 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f17d2662723f614588b37ae34ba8d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Content>k__BackingField: {fileID: 645361501}
   <DiceBagView>k__BackingField: {fileID: 1864748973}
   <RollAttackButton>k__BackingField: {fileID: 1501814271}
   <RollMagicButton>k__BackingField: {fileID: 1491719920}
@@ -1146,6 +1109,8 @@ MonoBehaviour:
   <RollLifeButton>k__BackingField: {fileID: 989989658}
   <RollScoreButton>k__BackingField: {fileID: 288205777}
   <ExitButton>k__BackingField: {fileID: 557774107}
+  <DiceResultPanel>k__BackingField: {fileID: 2124994798}
+  <DiceRollResult>k__BackingField: {fileID: 1759526332}
 --- !u!1 &557774105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,13 +1137,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557774105}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 449533899}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -1462,6 +1427,90 @@ MonoBehaviour:
   <AttackValue>k__BackingField: {fileID: 880643656}
   <MagicValue>k__BackingField: {fileID: 590390371}
   <DodgeValue>k__BackingField: {fileID: 1944055757}
+--- !u!1 &645361501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 645361502}
+  - component: {fileID: 645361504}
+  - component: {fileID: 645361503}
+  m_Layer: 5
+  m_Name: Overlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &645361502
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645361501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 822909977}
+  - {fileID: 2124994799}
+  - {fileID: 1501814270}
+  - {fileID: 1491719919}
+  - {fileID: 405259077}
+  - {fileID: 989989657}
+  - {fileID: 288205776}
+  - {fileID: 557774106}
+  m_Father: {fileID: 507057519}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &645361503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645361501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6792453, g: 0.18262726, b: 0.62348485, a: 0.78431374}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &645361504
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645361501}
+  m_CullTransparentMesh: 1
 --- !u!1 &693931098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1808,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 507057519}
+    m_TransformParent: {fileID: 645361502}
     m_Modifications:
     - target: {fileID: 2905335270771643210, guid: fb82e6cc7590cd044b5be107bcd83385,
         type: 3}
@@ -1864,17 +1913,17 @@ PrefabInstance:
     - target: {fileID: 7083490114113623645, guid: fb82e6cc7590cd044b5be107bcd83385,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7083490114113623645, guid: fb82e6cc7590cd044b5be107bcd83385,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7083490114113623645, guid: fb82e6cc7590cd044b5be107bcd83385,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7083490114113623645, guid: fb82e6cc7590cd044b5be107bcd83385,
         type: 3}
@@ -2455,13 +2504,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989989656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 503235924}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -3037,13 +3086,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491719918}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1939360079}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -3159,13 +3208,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501814269}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2140671146}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -3631,12 +3680,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e6201e015c5fc47a197b88d5ae001d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Canvas>k__BackingField: {fileID: 2091884398}
   <DebugButtonParent>k__BackingField: {fileID: 701236754}
   <DebugGetAd6Button>k__BackingField: {fileID: 1858229139}
   <GeneralUi>k__BackingField: {fileID: 630427871}
   <DiceQtdLabel>k__BackingField: {fileID: 857860216}
   <RollDiceMenuButton>k__BackingField: {fileID: 1474833221}
-  <RollDiceMenuOverlay>k__BackingField: {fileID: 507057518}
+  <RollDiceMenuOverlay>k__BackingField: {fileID: 507057522}
   <PlayerData>k__BackingField: {fileID: 693931099}
 --- !u!4 &1742364100
 Transform:
@@ -4478,13 +4528,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124994798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1759526331}
-  m_Father: {fileID: 507057519}
+  m_Father: {fileID: 645361502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

@@ -43,14 +43,14 @@ namespace Global
             }
 
             DiceViews.Remove(foundDice);
-            Destroy(foundDice);
+            Destroy(foundDice.gameObject);
         }
 
         public void Clear()
         {
             foreach (var diceView in DiceViews)
             {
-                Destroy(diceView);
+                Destroy(diceView.gameObject);
             }
             
             DiceViews.Clear();

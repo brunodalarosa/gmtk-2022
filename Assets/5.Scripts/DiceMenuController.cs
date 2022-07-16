@@ -1,17 +1,24 @@
 using Global;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DiceMenuController : MonoBehaviour
 {
+    [field: SerializeField] public GameObject Content { get; set; }
     [field: SerializeField] private DiceBagView DiceBagView { get; set; }
-    
     [field: SerializeField] private Button RollAttackButton { get; set; }
     [field: SerializeField] private Button RollMagicButton { get; set; }
     [field: SerializeField] private Button RollDodgeButton { get; set; }
     [field: SerializeField] private Button RollLifeButton { get; set; }
     [field: SerializeField] private Button RollScoreButton { get; set; }
     [field: SerializeField] private Button ExitButton { get; set; }
+    
+    
+    [field: SerializeField] public GameObject DiceResultPanel { get; set; }
+
+    [field: SerializeField] private TextMeshProUGUI DiceRollResult { get; set; }
+
 
     private void Awake()
     {
@@ -22,10 +29,14 @@ public class DiceMenuController : MonoBehaviour
         RollScoreButton.onClick.AddListener(() => RollDice(RollType.Score, DiceType.D6));
         
         ExitButton.onClick.AddListener(ExitDiceMenu);
+        
+        Content.gameObject.SetActive(false);
     }
 
     public void Init(PlayerData playerData)
     {
+        Content.gameObject.SetActive(true);
+        DiceResultPanel.gameObject.SetActive(false);
         DiceBagView.Init(playerData.DiceBag);
     }
 
@@ -42,6 +53,8 @@ public class DiceMenuController : MonoBehaviour
 
         if (usedDice != null)
         {
+            DiceRollResult.text = "ROLLED " + usedDice.RolledValue;
+            DiceResultPanel.gameObject.SetActive(true);
             DiceBagView.RemoveDice(usedDice.Type);
             UpdateButtons();
         }
@@ -50,6 +63,8 @@ public class DiceMenuController : MonoBehaviour
     private void ExitDiceMenu()
     {
         DiceBagView.Clear();
+        DiceResultPanel.gameObject.SetActive(false);
+        Content.gameObject.SetActive(false);
         LevelController.instance.LeaveDiceMenu();
     }
     
