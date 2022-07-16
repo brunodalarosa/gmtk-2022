@@ -404,58 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1742364098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1742364100}
-  - component: {fileID: 1742364099}
-  m_Layer: 0
-  m_Name: LevelController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1742364099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742364098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92e6201e015c5fc47a197b88d5ae001d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Canvas>k__BackingField: {fileID: 2091884398}
-  <DebugButtonParent>k__BackingField: {fileID: 701236754}
-  <DebugGetAd6Button>k__BackingField: {fileID: 1858229139}
-  <GeneralUi>k__BackingField: {fileID: 630427871}
-  <DiceQtdLabel>k__BackingField: {fileID: 857860216}
-  <RollDiceMenuButton>k__BackingField: {fileID: 1474833221}
-  <RollDiceMenuOverlay>k__BackingField: {fileID: 507057522}
-  <PlayerData>k__BackingField: {fileID: 693931099}
---- !u!4 &1742364100
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742364098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1849259909
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,3 +775,112 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def8ee910398182438f8b2a0918a7cb7, type: 3}
+--- !u!1001 &7610198120651687346
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7610198120119425136, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <Canvas>k__BackingField
+      value: 
+      objectReference: {fileID: 2091884398}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <GeneralUi>k__BackingField
+      value: 
+      objectReference: {fileID: 630427871}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <PlayerData>k__BackingField
+      value: 
+      objectReference: {fileID: 693931099}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <DiceQtdLabel>k__BackingField
+      value: 
+      objectReference: {fileID: 857860216}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <DebugButtonParent>k__BackingField
+      value: 
+      objectReference: {fileID: 701236754}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <DebugGetAd6Button>k__BackingField
+      value: 
+      objectReference: {fileID: 1858229139}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <RollDiceMenuButton>k__BackingField
+      value: 
+      objectReference: {fileID: 1474833221}
+    - target: {fileID: 7610198120119425137, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: <RollDiceMenuOverlay>k__BackingField
+      value: 
+      objectReference: {fileID: 507057522}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610198120119425142, guid: ccec5b87a280e2742945fee47441aceb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccec5b87a280e2742945fee47441aceb, type: 3}
