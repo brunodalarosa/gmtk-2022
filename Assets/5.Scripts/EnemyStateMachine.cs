@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
 using _5.Scripts.Gameplay;
+using DG.Tweening;
+using Global;
 using UnityEngine;
 
 namespace _5.Scripts
@@ -43,12 +47,18 @@ namespace _5.Scripts
                     break;
                 
                 case State.Dead:
-                    
+                    StartCoroutine(DestroyEnemyCoroutine());
                     break;
                 
                 default:
                     break;
             }
+        }
+
+        private IEnumerator DestroyEnemyCoroutine()
+        {
+            yield return new WaitForSeconds(1);
+            LevelController.instance.RemoveAndDestroyEnemy(_enemyData);
         }
 
         private void ChangeState(State state)

@@ -25,7 +25,7 @@ namespace Global
         {
             MaxHp = 100;
             Hp = 100;
-            Attacks = 5;
+            Attacks = 50;//5;
             AttackDamage = 20;
             MagicShots = 3;
             Dodges = 5;
@@ -97,6 +97,11 @@ namespace Global
         private void DiscardDice(Dice dice)
         {
             DiceBag.RemoveDice(dice);
+        }
+
+        public void AddScore(int enemyScore)
+        {
+            Score += enemyScore;
         }
     }
     

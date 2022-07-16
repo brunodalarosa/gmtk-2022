@@ -40,16 +40,15 @@ namespace Global
         private void Awake()
         {
             instance = this;
+            Enemies = new List<EnemyData>();
             
             DebugGetAd6Button.onClick.AddListener(DebugGiveD6ToPlayer);
             RollDiceMenuButton.onClick.AddListener(EnterDiceMenu);
-            
-
-            
         }
 
         private void Start()
         {
+            GeneralUi.Refresh(PlayerData);
             UpdateDiceMenuButtonState(PlayerData);
             StartNewLevel();
         }
@@ -65,9 +64,20 @@ namespace Global
             Enemies.Add(enemy);
         }
 
-        public void RemoveEnemy(EnemyData enemy)
+        public void RemoveAndDestroyEnemy(EnemyData enemy)
         {
-            if (Enemies.Remove(enemy)) CheckEnemies();
+            if (Enemies.Remove(enemy))
+            {
+                PlayerData.AddScore(enemy.Score);
+                GeneralUi.Refresh(PlayerData);
+                
+                Destroy(enemy.gameObject);
+                CheckEnemies();
+            }
+            else
+            {
+                Debug.Log("ALGO MTO ESTRANHO ROLOU TENTOU REMOVER UM INIMIGO QUE NÃO ESTAVA NA LISTA");
+            }
         }
         
         private void CheckEnemies()
@@ -86,15 +96,10 @@ namespace Global
         private IEnumerator LevelCooldownCoroutine()
         {
             yield return new WaitForSeconds(BeforeEnterLevelCooldownSeconds);
+            Debug.Log($"Entrou no level cooldown de {BetweenLevelsCooldownSeconds} segundos");
             //todo spawnar ferreiro?
             yield return new WaitForSeconds(BetweenLevelsCooldownSeconds);
             StartNewLevel();
-        }
-
-        private void Start()
-        {
-            
-            GeneralUi.Refresh(PlayerData);
         }
 
         private void EnterDiceMenu()

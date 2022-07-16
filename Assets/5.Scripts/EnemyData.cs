@@ -9,5 +9,6 @@ namespace _5.Scripts
         public float moveSpeed;
         public float AttackRange;
         public float AttackCooldown;
+        public int Score;
     }
 }
