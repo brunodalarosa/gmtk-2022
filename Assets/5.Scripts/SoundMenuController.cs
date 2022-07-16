@@ -1,20 +1,55 @@
-using _5.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
+// ReSharper disable InconsistentNaming
 
-public class SoundMenuController : MonoBehaviour
+namespace _5.Scripts
 {
-    [SerializeField] private Slider BGMSlider;
-    [SerializeField] private Slider SFXSlider;
-
-    public void SetBGMVolume()
+    public class SoundMenuController : MonoBehaviour
     {
-        SoundManager.Instance.SetBGMVolume(BGMSlider.value);
-    }
+        [SerializeField] private Slider BGMSlider;
+        [SerializeField] private Slider SFXSlider;
 
-    public void SetSFXVolume()
-    {
-        SoundManager.Instance.SetSFXVolume(SFXSlider.value);
-    }
+        public void Start()
+        {
+            if (SoundManager.Instance == null)
+            {
+                Debug.LogWarning("Missing SoundManager Instance. Start the game through the main menu.");
+                return;
+            }
+            BGMSlider.value = SoundManager.Instance.BGMVolume;
+            SoundManager.Instance.SetBGMVolume( SoundManager.Instance.BGMVolume);
+            SFXSlider.value = SoundManager.Instance.SFXVolume;
+            SoundManager.Instance.SetSFXVolume(SoundManager.Instance.SFXVolume);
+        }
 
+        public void SetBGMVolume()
+        {
+            if (SoundManager.Instance != null)  
+                SoundManager.Instance.SetBGMVolume(BGMSlider.value);
+        }
+
+        public void SetSFXVolume()
+        {
+            if (SoundManager.Instance != null) 
+                SoundManager.Instance.SetSFXVolume(SFXSlider.value);
+        }
+
+        public void PlaySFXUsingInstance(string sfx)
+        {
+            if (SoundManager.Instance != null) 
+                SoundManager.Instance.PlaySFX(sfx);
+        }
+
+        public void PlayBGMUsingInstance(string bgm)
+        {
+            if (SoundManager.Instance != null) 
+                SoundManager.Instance.PlayBGM(bgm);
+        }
+
+        public void StopBGMUsingInstance()
+        {
+            if (SoundManager.Instance != null) 
+                SoundManager.Instance.StopAllBGM();
+        }
+    }
 }

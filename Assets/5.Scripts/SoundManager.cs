@@ -11,7 +11,8 @@ namespace _5.Scripts
     {
         public Sound[] BGMs;
         public Sound[] SFXs;
-
+        public float BGMVolume { get; private set; } = 100f;
+        public float SFXVolume { get; private set; } = 100f;
         public static SoundManager Instance;
 
         private void Awake()
@@ -67,6 +68,7 @@ namespace _5.Scripts
         
         public void SetBGMVolume(float volume)
         {
+            BGMVolume = volume;
             foreach (var sound in BGMs)
             {
                 sound.source.volume = volume;
@@ -75,6 +77,7 @@ namespace _5.Scripts
 
         public void SetSFXVolume(float volume)
         {
+            SFXVolume = volume;
             foreach (var sound in SFXs)
             {
                 sound.source.volume = volume;
