@@ -1,13 +1,36 @@
-using System;
 using UnityEngine;
 
 namespace _5.Scripts
 {
     public class LevelManager : MonoBehaviour
     {
+        [SerializeField] private CanvasRenderer pauseMenuPanel;
+        
         private void Start()
         {
-            SoundManager.Instance.PlayBGM("sample-bgm"); 
+            if (SoundManager.Instance != null) 
+                SoundManager.Instance.PlayBGM("sample-bgm"); 
+        }
+
+        private void Update()
+        {
+            // Pause menu
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OpenPauseMenu();
+            }
+        }
+
+        private void OpenPauseMenu()
+        {
+            pauseMenuPanel.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        public void ClosePauseMenu()
+        {
+            pauseMenuPanel.gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }

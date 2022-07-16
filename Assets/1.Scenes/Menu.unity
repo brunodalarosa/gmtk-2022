@@ -393,18 +393,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84714798}
   m_CullTransparentMesh: 1
---- !u!114 &97162707 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5288073730062754904, guid: 0d6c8267965806b4286b049e4c5640fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 5288073730151264651}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33de58ee6786c54c8792b76eedc6e33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &110660800
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +542,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1316461220}
+        m_TargetAssemblyTypeName: _5.Scripts.SoundMenuController, Assembly-CSharp
+        m_MethodName: PlaySFXUsingInstance
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: interface-click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1316461220}
         m_TargetAssemblyTypeName: SoundMenuController, Assembly-CSharp
         m_MethodName: SetBGMVolume
@@ -1059,9 +1059,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 97162707}
-        m_TargetAssemblyTypeName: _5.Scripts.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1316461220}
+        m_TargetAssemblyTypeName: _5.Scripts.SoundMenuController, Assembly-CSharp
+        m_MethodName: PlaySFXUsingInstance
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1669,9 +1669,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 97162707}
-        m_TargetAssemblyTypeName: _5.Scripts.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1316461220}
+        m_TargetAssemblyTypeName: _5.Scripts.SoundMenuController, Assembly-CSharp
+        m_MethodName: PlaySFXUsingInstance
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2236,8 +2236,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1316461218}
-        m_TargetAssemblyTypeName: _5.Scripts.MenuController, Assembly-CSharp
+      - m_Target: {fileID: 1316461221}
+        m_TargetAssemblyTypeName: _5.Scripts.SceneController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2248,9 +2248,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 97162707}
-        m_TargetAssemblyTypeName: _5.Scripts.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1316461220}
+        m_TargetAssemblyTypeName: _5.Scripts.SoundMenuController, Assembly-CSharp
+        m_MethodName: PlaySFXUsingInstance
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2385,6 +2385,7 @@ GameObject:
   - component: {fileID: 1316461219}
   - component: {fileID: 1316461218}
   - component: {fileID: 1316461220}
+  - component: {fileID: 1316461221}
   m_Layer: 0
   m_Name: Menu Controller
   m_TagString: Untagged
@@ -2433,6 +2434,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSlider: {fileID: 137721726}
   SFXSlider: {fileID: 1449836050}
+--- !u!114 &1316461221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316461217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9645560c3e9281e439449276a49c9abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1368056519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2693,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1316461220}
+        m_TargetAssemblyTypeName: _5.Scripts.SoundMenuController, Assembly-CSharp
+        m_MethodName: PlaySFXUsingInstance
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: interface-click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1316461220}
         m_TargetAssemblyTypeName: SoundMenuController, Assembly-CSharp
         m_MethodName: SetSFXVolume
@@ -3316,9 +3341,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1316461218}
-        m_TargetAssemblyTypeName: _5.Scripts.MenuController, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1316461221}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: GoToGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3328,9 +3353,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 97162707}
-        m_TargetAssemblyTypeName: _5.Scripts.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1316461220}
+        m_TargetAssemblyTypeName: _5.Scripts.SoundMenuController, Assembly-CSharp
+        m_MethodName: PlaySFXUsingInstance
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4036047481728089192}
   - component: {fileID: 2689434592109388327}
   - component: {fileID: 809076598151834563}
+  - component: {fileID: 8256484259114412492}
   m_Layer: 5
   m_Name: DiceView
   m_TagString: Untagged
@@ -76,3 +77,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8256484259114412492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940947909845272536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162ea1c14df94a79b61015fa28757215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DiceImage>k__BackingField: {fileID: 809076598151834563}
