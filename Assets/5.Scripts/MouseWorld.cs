@@ -6,6 +6,7 @@ namespace _5.Scripts
     public class MouseWorld : MonoBehaviour
     {
         private static MouseWorld instance;
+        private Transform playerTransform;
 
         [field: SerializeField] private LayerMask PlaneLayerMask;
 
@@ -14,9 +15,24 @@ namespace _5.Scripts
             instance = this;
         }
 
+        private void Start()
+        {
+            playerTransform = FarinhaPlayerTest.instance.transform;
+        }
+
         private void Update()
         {
-            transform.position = MouseWorld.GetPosition();
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition)))
+            {
+                transform.position = MouseWorld.GetPosition();
+                RotatePlayer();
+            }
+        }
+
+        private void RotatePlayer()
+        {
+            playerTransform.LookAt(new Vector3(transform.position.x, playerTransform.position.y, transform.position.z));
+
         }
 
         public static Vector3 GetPosition()
