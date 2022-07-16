@@ -22,11 +22,8 @@ namespace _5.Scripts
 
         private void Update()
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition)))
-            {
-                transform.position = MouseWorld.GetPosition();
-                RotatePlayer();
-            }
+            transform.position = MouseWorld.GetPosition();
+            RotatePlayer();
         }
 
         private void RotatePlayer()
