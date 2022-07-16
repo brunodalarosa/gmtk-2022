@@ -6,8 +6,6 @@ namespace Global
 {
     public class DiceBagView : MonoBehaviour
     {
-        public static DiceBagView instance;
-        
         [field: SerializeField] private RectTransform ContentRect { get; set; }
         [field: SerializeField] private DiceView DiceViewPrefab { get; set; }
 
@@ -15,13 +13,12 @@ namespace Global
 
         private void Awake()
         {
-            instance = this;
             DiceViews = new List<DiceView>();
         }
 
-        public void Init(List<Dice> diceList)
+        public void Init(DiceBag diceBag)
         {
-            foreach (var dice in diceList)
+            foreach (var dice in diceBag.Dices)
             {
                 var diceView = Instantiate(DiceViewPrefab, ContentRect, false);
                 diceView.Init(dice);
@@ -47,6 +44,16 @@ namespace Global
 
             DiceViews.Remove(foundDice);
             Destroy(foundDice);
+        }
+
+        public void Clear()
+        {
+            foreach (var diceView in DiceViews)
+            {
+                Destroy(diceView);
+            }
+            
+            DiceViews.Clear();
         }
 
     }

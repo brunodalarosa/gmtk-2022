@@ -5,11 +5,11 @@ namespace Global
 {
     public class PlayerData : MonoBehaviour
     {
-        private float Hp { get; set; }
-        private int Attacks { get; set; }
-        private int MagicShots { get; set; }
-        private int Dodges { get; set; }
-        private int Score { get; set; }
+        public float Hp { get; private set; }
+        public int Attacks { get; private set; }
+        public int MagicShots { get; private set; }
+        public int Dodges { get; private set; }
+        public int Score { get; private set; }
 
         public DiceBag DiceBag { get; private set; }
 
@@ -17,7 +17,16 @@ namespace Global
 
         private void Awake()
         {
+            Hp = 100;
+            Attacks = 5;
+            MagicShots = 3;
+            Dodges = 5;
+            Score = 0;
+            
             DiceBag = new DiceBag();
+            
+            // Inventário inicial de dados do jogador
+            DiceBag.AddNewDice(DiceType.D6);
         }
 
         public void RollDice(RollType rollType, Dice dice)

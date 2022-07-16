@@ -11,29 +11,14 @@ namespace Global
         [field: SerializeField] private TextMeshProUGUI MagicValue { get; set; }
         [field: SerializeField] private TextMeshProUGUI DodgeValue { get; set; }
 
-        public void UpdateHpValue(float hp)
+        public void Refresh(PlayerData playerData)
         {
-            HpLabelValue.text = $"HP:{(int)hp}";
-        }
+            HpLabelValue.text = $"HP:{(int)playerData.Hp}";
+            ScoreLabelValue.text = $"Score:{playerData.Score}";
+            AttackValue.text = playerData.Attacks.ToString();
+            MagicValue.text = playerData.MagicShots.ToString();
+            DodgeValue.text = playerData.Dodges.ToString();
 
-        public void UpdateScoreValue(int score)
-        {
-            ScoreLabelValue.text = $"Score:{score}";
-        }
-
-        public void UpdateAttackValue(int newAttackValue)
-        {
-            AttackValue.text = newAttackValue.ToString();
-        }
-
-        public void UpdateMagicValue(int newMagicValue)
-        {
-            MagicValue.text = newMagicValue.ToString();
-        }
-
-        public void UpdateDodgeValue(int newDodgeValue)
-        {
-            DodgeValue.text = newDodgeValue.ToString();
         }
     }
 }

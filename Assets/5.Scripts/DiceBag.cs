@@ -7,7 +7,7 @@ namespace Global
     {
         public int DiceQtd => Dices.Count;
 
-        private List<Dice> Dices { get; }
+        public List<Dice> Dices { get; private set; }
 
         public DiceBag()
         {
@@ -18,7 +18,6 @@ namespace Global
         {
             var newDice = new Dice(diceType);
             Dices.Add(newDice);
-            DiceBagView.instance.AddDice(newDice);
         }
         
         public Dice GetDiceOfType(DiceType type)
@@ -43,7 +42,6 @@ namespace Global
             }
 
             Dices.Remove(foundDice);
-            DiceBagView.instance.RemoveDice(foundDice.Type);
         }
     }
 }
