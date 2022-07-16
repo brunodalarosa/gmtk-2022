@@ -58,4 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# User-specific stuff
+.idea/
+
 UserSettings/EditorUserSettings.asset

@@ -1,36 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2b63b01-b748-4e62-82ab-702cebf44c25" name="Changes" comment="" />
+    <list default="true" id="f29916cc-d2c8-4ff3-963f-831dbec342e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.gmtk-2022/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.gmtk-2022/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.gmtk-2022/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scenes/BrunoTest.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scenes/BrunoTest.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Prefabs/DiceBag.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Prefabs/DiceBag.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Prefabs/DiceView.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Prefabs/DiceView.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/5.Scripts/Dice.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/5.Scripts/Dice.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/5.Scripts/DiceBag.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/5.Scripts/DiceBag.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/5.Scripts/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/5.Scripts/Player.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2C0UT4abTlVUpFtyBxUAME9JW9J" />
+  <component name="ProjectId" id="2C0RKuodyV65Eas5aUZc1JlI6Kv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Discover.Launch.Via.Unity": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "rider.run.widget.enabled.cache": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\edufe\Unity Projects\gmtk-2022&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\edufe\Unity Projects\gmtk-2022" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\bcesa\fork\gmtk-2022 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\bcesa\fork\gmtk-2022" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -59,12 +84,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f2b63b01-b748-4e62-82ab-702cebf44c25" name="Changes" comment="" />
-      <created>1657939001310</created>
+      <changelist id="f29916cc-d2c8-4ff3-963f-831dbec342e5" name="Changes" comment="" />
+      <created>1657937462686</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1657939001310</updated>
-      <workItem from="1657939007168" duration="3682000" />
+      <updated>1657937462686</updated>
+      <workItem from="1657937479886" duration="5729000" />
     </task>
     <servers />
   </component>
@@ -74,7 +99,19 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
