@@ -38,6 +38,7 @@ public class DiceMenuController : MonoBehaviour
         Content.gameObject.SetActive(true);
         DiceResultPanel.gameObject.SetActive(false);
         DiceBagView.Init(playerData.DiceBag);
+        UpdateButtons();
     }
 
     private void UpdateButtons()
