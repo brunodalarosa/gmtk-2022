@@ -13,10 +13,7 @@ public class DiceMenuController : MonoBehaviour
     [field: SerializeField] private Button RollLifeButton { get; set; }
     [field: SerializeField] private Button RollScoreButton { get; set; }
     [field: SerializeField] private Button ExitButton { get; set; }
-    
-    
     [field: SerializeField] public GameObject DiceResultPanel { get; set; }
-
     [field: SerializeField] private TextMeshProUGUI DiceRollResult { get; set; }
 
 
@@ -54,7 +51,7 @@ public class DiceMenuController : MonoBehaviour
 
         if (usedDice != null)
         {
-            DiceRollResult.text = "ROLLED " + usedDice.RolledValue;
+            DiceRollResult.text = usedDice.RolledValue.ToString();
             DiceResultPanel.gameObject.SetActive(true);
             DiceBagView.RemoveDice(usedDice.Type);
             UpdateButtons();
