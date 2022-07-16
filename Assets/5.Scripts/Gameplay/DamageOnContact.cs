@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _5.Scripts.Gameplay;
 using UnityEngine;
 
 public class DamageOnContact : MonoBehaviour

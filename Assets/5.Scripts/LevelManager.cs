@@ -5,7 +5,7 @@ namespace _5.Scripts
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private CanvasRenderer pauseMenuPanel;
-        
+
         private void Start()
         {
             if (SoundManager.Instance != null) 
