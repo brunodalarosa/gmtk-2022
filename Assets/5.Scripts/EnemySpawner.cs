@@ -4,7 +4,7 @@ namespace _5.Scripts
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private PlayerMovement player;
+        private PlayerMovement player;
         
     }
 }

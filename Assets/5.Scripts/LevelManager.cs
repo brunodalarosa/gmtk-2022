@@ -17,8 +17,20 @@ namespace _5.Scripts
             // Pause menu
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                pauseMenuPanel.gameObject.SetActive(true);
+                OpenPauseMenu();
             }
+        }
+
+        private void OpenPauseMenu()
+        {
+            pauseMenuPanel.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        public void ClosePauseMenu()
+        {
+            pauseMenuPanel.gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }
