@@ -3658,6 +3658,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &996615822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5931438917215731347, guid: acce47537e5805349b3a6e783db2cea9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6297539734573671737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4a0fe24a8c965449b63c0c768e60f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1008531731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17929,6 +17941,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 853720464, guid: acce47537e5805349b3a6e783db2cea9, type: 3}
+      propertyPath: _playerData
+      value: 
+      objectReference: {fileID: 1240543918}
+    - target: {fileID: 1423637650412870893, guid: acce47537e5805349b3a6e783db2cea9,
+        type: 3}
+      propertyPath: _playerDamageOnContact
+      value: 
+      objectReference: {fileID: 996615822}
     - target: {fileID: 6297539734381757162, guid: acce47537e5805349b3a6e783db2cea9,
         type: 3}
       propertyPath: m_Name
@@ -17989,5 +18010,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2561942654034040413, guid: acce47537e5805349b3a6e783db2cea9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: acce47537e5805349b3a6e783db2cea9, type: 3}

@@ -32,9 +32,14 @@ namespace Global
             DebugGetAd6Button.onClick.AddListener(DebugGiveD6ToPlayer);
             RollDiceMenuButton.onClick.AddListener(EnterDiceMenu);
             
-            GeneralUi.Refresh(PlayerData);
 
             UpdateDiceMenuButtonState(PlayerData);
+        }
+
+        private void Start()
+        {
+            
+            GeneralUi.Refresh(PlayerData);
         }
 
         private void EnterDiceMenu()
@@ -87,6 +92,11 @@ namespace Global
         {
             RollDiceMenuButton.enabled = playerData.DiceQtd >= 1;
             DiceQtdLabel.text = playerData.DiceQtd.ToString();
+        }
+
+        public void UpdateUI()
+        {
+            GeneralUi.Refresh(PlayerData);
         }
     }
 }

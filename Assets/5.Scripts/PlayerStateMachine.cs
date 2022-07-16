@@ -1,5 +1,6 @@
 using Global;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace _5.Scripts
 {
@@ -15,9 +16,7 @@ namespace _5.Scripts
         }
         
         [SerializeField] private PlayerMovement _playerMovement;
-        [SerializeField] private PlayerAttack _playerAttack;
         [SerializeField] private PlayerData _playerData;
-        
         public Animator animator;
 
         private void Awake()
@@ -34,22 +33,32 @@ namespace _5.Scripts
                 case State.Walking:
                     if (Input.GetMouseButton(0))
                     {
-                        ChangeState(State.Attacking);
-                        return;
+                        if (_playerData.Attacks > 0)
+                        {
+                           ChangeState(State.Attacking);
+                           return;
+                        }
                     }
                     
                     if (Input.GetMouseButton(1))
                     {
-                        ChangeState(State.Casting);
-                        return;
+                        if (_playerData.MagicShots > 0)
+                        {
+                            ChangeState(State.Casting);
+                            return;
+                        }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space))
                     {
-                        ChangeState(State.Dodging);
-                        return;
+                        if (_playerData.Dodges > 0)
+                        {
+                            ChangeState(State.Dodging);
+                            return;
+                        }
+
                     }
-                    
+
                     _playerMovement.HandleMovement();
                     break;
                 
@@ -80,12 +89,18 @@ namespace _5.Scripts
                     break;
                 case State.Attacking:
                     animator.SetTrigger("attack");
+                    _playerData.Attacks--;
+                    LevelController.instance.UpdateUI();
                     break;
                 case State.Dodging:
                     animator.SetTrigger("dodge");
+                    _playerData.Dodges--;
+                    LevelController.instance.UpdateUI();
                     break;
                 case State.Casting:
                     animator.SetTrigger("cast");
+                    _playerData.MagicShots--;
+                    LevelController.instance.UpdateUI();
                     break;
                 case State.Dying:
                     break;
@@ -93,6 +108,21 @@ namespace _5.Scripts
                     break;
             }
             CurrentState = state;
+        }
+        
+        public void AttackEnd()
+        {
+            ChangeState(State.Walking);
+        }
+
+        public void DodgeEnd()
+        {
+            ChangeState(State.Walking);
+        }
+        
+        public void CastEnd()
+        {
+            ChangeState(State.Walking);
         }
     }
 }

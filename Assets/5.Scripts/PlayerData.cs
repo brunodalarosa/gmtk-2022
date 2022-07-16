@@ -1,4 +1,5 @@
 using System;
+using _5.Scripts.Gameplay;
 using UnityEngine;
 
 namespace Global
@@ -7,15 +8,18 @@ namespace Global
     {
         public float MaxHp { get; private set; }
         public float Hp { get; private set; }
-        public int Attacks { get; private set; }
+        public int Attacks { get; set; }
         public int AttackDamage { get; private set; }
-        public int MagicShots { get; private set; }
-        public int Dodges { get; private set; }
+        public int MagicShots { get; set; }
+        public int Dodges { get; set; }
         public int Score { get; private set; }
 
         public DiceBag DiceBag { get; private set; }
 
         public int DiceQtd => DiceBag.DiceQtd;
+
+        [SerializeField] private DamageOnContact _playerDamageOnContact;
+        
 
         private void Awake()
         {
@@ -31,6 +35,9 @@ namespace Global
             
             // Inventário inicial de dados do jogador
             DiceBag.AddNewDice(DiceType.D6);
+            
+            // Set the player damage
+            _playerDamageOnContact.SetDamage(AttackDamage);
         }
 
         public void RollDice(RollType rollType, Dice dice)

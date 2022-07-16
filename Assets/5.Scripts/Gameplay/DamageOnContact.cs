@@ -5,7 +5,7 @@ namespace _5.Scripts.Gameplay
 {
     public class DamageOnContact : MonoBehaviour
     {
-        [SerializeField] private PlayerData _playerData;
+        public int damage = 20;
         public bool randomizeId = true;
         public int id;
 
@@ -15,11 +15,16 @@ namespace _5.Scripts.Gameplay
                 id = Random.Range(0, 1000);
         }
 
+        public void SetDamage(int value)
+        {
+            damage = value;
+        }
+
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.GetComponentInChildren<Damageable>())
             {
-                other.gameObject.GetComponentInChildren<Damageable>().Damage(_playerData.AttackDamage, id);
+                other.gameObject.GetComponentInChildren<Damageable>().Damage(damage, id);
             }
         }
     }
