@@ -102,7 +102,7 @@ namespace _5.Scripts
                 
                 case State.Attacking:
                     _playerMovement.RotatePlayer();
-                    SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "swosh-01" : "swosh-02");
+                    SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "swosh-01" : "swosh-02");
                     animator.SetTrigger("attack");
                     _playerData.Attacks--;
                     LevelController.instance.UpdateUI();
@@ -110,7 +110,7 @@ namespace _5.Scripts
                 
                 case State.Dodging:
                     animator.SetTrigger("dodge");
-                    SoundManager.Instance.PlaySFX("swosh-03");
+                    SoundManager.Instance?.PlaySFX("swosh-03");
                     _playerData.Dodges--;
                     currentDodgeDirection = _playerMovement.GetDodgeDirection();
                     _dodgeMovementOccurring = true;

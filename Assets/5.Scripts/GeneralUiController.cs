@@ -57,7 +57,7 @@ namespace Global
         public void RollDice()
         {
             AnimatorDiceRoller.SetTrigger("press");
-            SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "dice-1" : "dice-2");
+            SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "dice-1" : "dice-2");
 
         }
 
