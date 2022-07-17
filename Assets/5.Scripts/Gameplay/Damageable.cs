@@ -75,6 +75,11 @@ namespace Global
 
         }
 
+        public void ApplyNewHpValue(int newHp)
+        {
+            hpCurrent = Mathf.Clamp(newHp, 0, hpMax);
+        }
+
         public void Death()
         {
             dead = true;
