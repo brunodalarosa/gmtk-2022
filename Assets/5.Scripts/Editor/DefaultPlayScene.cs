@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEditor.SceneManagement;
 
-namespace _5.Scripts
+namespace _5.Scripts.Editor
 {
     public static class DefaultPlayScene
     {
