@@ -133,18 +133,42 @@ public class Rngesus : MonoBehaviour
     
     private void CastStandardCurse(int rolledValue)
     {
-        //TODO BRINCAR AQUI
-        CastEasyCurse(2);
-        CastEasyCurse(5);
+        if (rolledValue == 1) // 1
+        {
+            EnemySpawnInterval = 0.15f;
+            SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(2));
+        }
+        else if (rolledValue <= 2) // 2
+        {
+            CastStandardCurse(1);
+            //todo Debuff de velocidade no player
+        }
+        else if (rolledValue <= 4) // 3 & 4
+        {
+            RollType rollType = rolledValue == 4 ? RollType.Magic : RollType.Attack;
+            int value = rolledValue == 3 ? 2 : 3;
+            
+            LevelController.Instance.PlayerCurseDiceRoll(rollType, value);
+        }
+        else if (rolledValue == 5) // 5
+        {
+            CastEasyCurse(2);
+            //Todo Spawnar fogueira num lugar aleatório do mapa?
+        }
+        else // 6
+        {
+            EnemySpawnInterval = 0.15f;
+            SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(3));
+            //Todo buffar 3 inimgos com speed
+            LevelController.Instance.PlayerCurseDiceRoll(RollType.Life, 10);
+        }
     }
 
     private void CastHardCurse(int rolledValue)
     {
         //TODO BRINCAR AQUI
-
-        CastEasyCurse(2);
-        CastEasyCurse(5);
-        CastEasyCurse(6);
+        CastStandardCurse(rolledValue == 6 ? 6 : 2);
+        CastStandardCurse(4);
     }
 
     public void OnLevelStarted()
@@ -175,6 +199,11 @@ public class Rngesus : MonoBehaviour
     public void OnLevelFinished()
     {
         Anger++;
+
+        if (Anger % 2 == 0) //Level par aumenta qtd de inimigos spawnados
+        {
+            EnemySpawnPerLevel += Dice.Roll() > 3 ? 2 : 1;
+        }
     }
     
     private IEnumerator WaitAnimationThenApplyDiceEffect(float animDuration, int rolledValue)
