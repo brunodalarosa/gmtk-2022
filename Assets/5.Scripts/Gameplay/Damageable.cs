@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _5.Scripts;
 using UnityEngine;
 
 namespace Global
@@ -30,6 +31,12 @@ namespace Global
                 {
                     if (attacksImmuneTo.Contains(attackId) == false)
                     {
+                        if (gameObject.CompareTag("Player"))
+                            // NEED SOUND
+                            SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "player-die-1" : "player-die-2");
+                        else
+                            SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "pierce-1" : "pierce-2");
+                        
                         HpChange(-value);
                         StartCoroutine(Iframes(attackId));
                     }
@@ -73,6 +80,11 @@ namespace Global
         {
             dead = true;
             vfxManager?.VfxDeath();
+
+            if (gameObject.CompareTag("Player"))
+                SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "player-die-1" : "player-die-2");
+            else
+                SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "angel-die-1" : "angel-die-2");
         }
 
     }
