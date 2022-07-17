@@ -33,7 +33,6 @@ namespace Global
         [field: SerializeField] private Button DebugGetAd6Button { get; set; }
         [field: SerializeField] private GeneralUiController GeneralUi { get; set; }
         [field: SerializeField] private TextMeshProUGUI DiceQtdLabel { get; set; }
-        [field: SerializeField] private Button RollDiceMenuButton { get; set; }
         [field: SerializeField] private DiceMenuController RollDiceMenuOverlay { get; set; }
         
         [field: Header("Player")]
@@ -53,7 +52,6 @@ namespace Global
             Enemies = new List<EnemyData>();
             
             DebugGetAd6Button.onClick.AddListener(DebugGiveD6ToPlayer);
-            RollDiceMenuButton.onClick.AddListener(EnterDiceMenu);
         }
 
         public void UpdatePlayerHp(int value)
@@ -138,6 +136,7 @@ namespace Global
             DOTween.To(() => filterPause.weight, x => filterPause.weight = x, 1, .33f);
             DebugButtonParent.gameObject.SetActive(false);
             GeneralUi.transform.SetParent(RollDiceMenuOverlay.Content.transform, true);
+            GeneralUi.RollDice();
         }
 
         public void LeaveDiceMenu()
@@ -173,7 +172,6 @@ namespace Global
 
         public void UpdateDiceMenuButtonState(PlayerData playerData)
         {
-            RollDiceMenuButton.enabled = playerData.DiceQtd >= 1;
             DiceQtdLabel.text = playerData.DiceQtd.ToString();
         }
         
@@ -195,12 +193,9 @@ namespace Global
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) && PlayerData.DiceQtd > 0 && !paused)
             {
-                if (paused)
-                    LeaveDiceMenu();
-                else
-                    EnterDiceMenu();
+                EnterDiceMenu();
 
             }
 

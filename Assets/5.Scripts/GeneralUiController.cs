@@ -24,6 +24,7 @@ namespace Global
         [field: SerializeField] private Animator AnimatorSpellsCounter { get; set; }
         [field: SerializeField] private Animator AnimatorDodgesCounter { get; set; }
         [field: SerializeField] private Animator[] AnimatorDiceCounters { get; set; }
+        [field: SerializeField] private Animator AnimatorDiceRoller { get; set; }
 
         [field: Header("Timer")]
         [field: SerializeField] private CanvasGroup TimerGroup { get; set; }
@@ -45,10 +46,16 @@ namespace Global
             MagicValue.text = playerData.MagicShots.ToString();
             DodgeValue.text = playerData.Dodges.ToString();
             HpFillImage.DOFillAmount((float)playerData.Hp / (float)playerData.MaxHp, .25f);
+
+            if (playerData.DiceQtd > 0)
+                AnimatorDiceRoller.SetTrigger("normal");
+            else
+                AnimatorDiceRoller.SetTrigger("disable");
         }
 
-        public void UpdateStatus()
+        public void RollDice()
         {
+            AnimatorDiceRoller.SetTrigger("press");
 
         }
 

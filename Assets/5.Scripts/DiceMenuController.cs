@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using Global;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class DiceMenuController : MonoBehaviour
 {
@@ -25,9 +27,20 @@ public class DiceMenuController : MonoBehaviour
     [field: SerializeField] private Button RollScoreButton { get; set; }
     [field: SerializeField] private Animator RollScoreAnimator { get; set; }
 
-    [field: SerializeField] private Button ExitButton { get; set; }
     [field: SerializeField] public GameObject DiceResultPanel { get; set; }
     [field: SerializeField] private TextMeshProUGUI DiceRollResult { get; set; }
+
+    [field: Header("Dice Vfx")]
+    [field: SerializeField] private ParticleSystem VfxRoll { get; set; }
+    [field: SerializeField] private ParticleSystem VfxBad { get; set; }
+    [field: SerializeField] private ParticleSystem VfxNeutral { get; set; }
+    [field: SerializeField] private ParticleSystem VfxGood { get; set; }
+    [field: SerializeField] private ParticleSystem VfxBest { get; set; }
+    [field: SerializeField] private Color ColorBad { get; set; }
+    [field: SerializeField] private Color ColorNeutral { get; set; }
+    [field: SerializeField] private Color ColorGood { get; set; }
+    [field: SerializeField] private Color ColorBest { get; set; }
+    [field: SerializeField] private AnimationCurve ResultCurve { get; set; }
     
     private int RolledValue { get; set; }
 
@@ -39,9 +52,7 @@ public class DiceMenuController : MonoBehaviour
         RollDodgeButton.onClick.AddListener(() => ApplyRolledDice(RollType.Dodge, RolledValue));
         RollLifeButton.onClick.AddListener(() => ApplyRolledDice(RollType.Life, RolledValue));
         RollScoreButton.onClick.AddListener(() => ApplyRolledDice(RollType.Score, RolledValue));
-        
-        ExitButton.onClick.AddListener(ExitDiceMenu);
-        
+                
         Content.gameObject.SetActive(false);
     }
 
@@ -64,23 +75,60 @@ public class DiceMenuController : MonoBehaviour
         RolledValue = dice.Roll();
         playerData.DiscardDice(dice);
 
-        DiceRollResult.text = RolledValue.ToString();
+        StopAllCoroutines();
+        StartCoroutine(RollSequence());
+    }
+    private IEnumerator RollSequence()
+    {
         DiceResultPanel.gameObject.SetActive(true);
+        DiceRollResult.text = RolledValue.ToString();
+        DiceResultPanel.GetComponent<RectTransform>().DOScale(0, 0);
+
+        VfxRoll.Play();
+        yield return new WaitForSecondsRealtime(VfxRoll.main.duration);
+
+        if (RolledValue == 6)
+        {
+            VfxBest.Play();
+            DiceRollResult.color = ColorBest;
+        }
+        else if (RolledValue == 1)
+        {
+            VfxBad.Play();
+            DiceRollResult.color = ColorBad;
+        }
+        else if (RolledValue == 5)
+        {
+            VfxGood.Play();
+            DiceRollResult.color = ColorGood;
+        }
+        else
+        {
+            VfxNeutral.Play();
+            DiceRollResult.color = ColorNeutral;
+        }
+
+        DiceResultPanel.GetComponent<RectTransform>().DOScale(1, .25f).SetEase(ResultCurve);
+
 
         //todo: farinha aqui chama a animação, rolledValue contém o valor rolado e chamar linha de baixo pós animação
         BeforeChoiceSetAnimatorStates();
         ToggleButtonsEnabled(true);
-    }
 
+    }
     private void ApplyRolledDice(RollType rollType, int value)
     {
         AfterChoiceSetAnimatorStates(rollType);
         LevelController.instance.ApplyDiceRoll(rollType, value);
+        DiceResultPanel.GetComponent<RectTransform>().DOScale(0, .25f).SetEase(ResultCurve);
+        StopAllCoroutines();
+        StartCoroutine(ExitDiceMenu());
         //todo: farinha aqui chama a animação, rolledValue contém o valor rolado e chamar linha de baixo pós animação
     }
     
-    private void ExitDiceMenu()
+    private IEnumerator ExitDiceMenu()
     {
+        yield return new WaitForSecondsRealtime(.25f);
         DiceResultPanel.gameObject.SetActive(false);
         Content.gameObject.SetActive(false);
         LevelController.instance.LeaveDiceMenu();

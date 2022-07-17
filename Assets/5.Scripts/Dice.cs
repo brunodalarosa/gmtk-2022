@@ -20,7 +20,7 @@ namespace Global
             switch (Type)
             {
                 case DiceType.D6:
-                    var rng = Random.Range(1, 6);
+                    var rng = Random.Range(1, 7);
                     RolledValue = rng;
                     return rng;
                 
