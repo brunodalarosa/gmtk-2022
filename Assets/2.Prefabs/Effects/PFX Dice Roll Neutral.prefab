@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 869652488379073324}
   - component: {fileID: 8454648280756616679}
   - component: {fileID: 1319392892856519262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 2733690016691303233}
   - component: {fileID: 2733690016691303232}
   - component: {fileID: 2733690016691303239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PFX Dice Roll Neutral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4897,7 @@ Transform:
   m_GameObject: {fileID: 2733690016691303238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.37, z: 0.86}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 417441134719738618}
@@ -4923,8 +4923,8 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
-  useUnscaledTime: 0
+  playOnAwake: 1
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -9696,7 +9696,7 @@ GameObject:
   - component: {fileID: 417441134719738618}
   - component: {fileID: 4538593112429826982}
   - component: {fileID: 8870020781226644876}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9736,7 +9736,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -14567,7 +14567,7 @@ GameObject:
   - component: {fileID: 2588320125584071220}
   - component: {fileID: 7386764998700698568}
   - component: {fileID: 6176565858667351572}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14607,7 +14607,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
