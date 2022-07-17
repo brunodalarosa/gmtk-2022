@@ -53,7 +53,7 @@ namespace Global
             Instance = this;
             Enemies = new List<EnemyData>();
             
-            DebugGetAd6Button.onClick.AddListener(DebugGiveD6ToPlayer);
+            DebugGetAd6Button.onClick.AddListener(AddD6ToPlayer);
         }
 
         public void UpdatePlayerHp(int value)
@@ -185,7 +185,7 @@ namespace Global
             DiceQtdLabel.text = playerData.DiceQtd.ToString();
         }
         
-        private void DebugGiveD6ToPlayer()
+        public void AddD6ToPlayer()
         {
             PlayerData.DiceBag.AddNewDice(DiceType.D6);
             UpdateDiceMenuButtonState(PlayerData);

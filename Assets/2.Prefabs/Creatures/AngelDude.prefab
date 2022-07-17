@@ -15450,6 +15450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3de98fc6099d514983cbeb3ae3a9788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dicePrefab: {fileID: 3666302844091564195, guid: 89bee7b148c5d76418bfd6bd6fe1ac91,
+    type: 3}
+  dropChance: 33
 --- !u!1 &5814728871930278321
 GameObject:
   m_ObjectHideFlags: 0
