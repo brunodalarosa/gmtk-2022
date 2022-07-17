@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 8623750164805455479}
   - component: {fileID: 8623750164805455478}
   - component: {fileID: 1008531733}
+  - component: {fileID: 3577264142062017767}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -267,6 +268,28 @@ MonoBehaviour:
   filterPause: {fileID: 2923185713591921990}
   <PauseTimeScale>k__BackingField: 0.05
   <paused>k__BackingField: 0
+--- !u!114 &3577264142062017767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623750164805455475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba91dad3abe73024d96614ad5c9b7c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  dicePrefab: {fileID: 3666302844091564195, guid: 89bee7b148c5d76418bfd6bd6fe1ac91,
+    type: 3}
+  spawnCooldown: 15
 --- !u!1 &8902346526990579280
 GameObject:
   m_ObjectHideFlags: 0

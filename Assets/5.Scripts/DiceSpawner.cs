@@ -12,7 +12,7 @@ public class DiceSpawner : MonoBehaviour
     private void Update()
     {
         _currentTimer += Time.deltaTime;
-        if (!(_currentTimer < spawnCooldown)) return;
+        if (_currentTimer < spawnCooldown) return;
         SpawnDice();
         _currentTimer = 0f;
     }

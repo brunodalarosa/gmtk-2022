@@ -5,7 +5,6 @@ namespace _5.Scripts
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private CanvasRenderer pauseMenuPanel;
-        [SerializeField] private CanvasRenderer gameOverPanel;
 
         private void Start()
         {
@@ -32,11 +31,6 @@ namespace _5.Scripts
         {
             Time.timeScale = 1f;
             pauseMenuPanel.gameObject.SetActive(false);
-        }
-
-        public void OpenGameOverMenu()
-        {
-            
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.074791536, g: 0.19413087, b: 0.34562773, a: 1}
+  m_IndirectSpecularColor: {r: 0.07479149, g: 0.19413087, b: 0.34562778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10652,7 +10652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Equipe
+  m_text: Team
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5094978765690f4ba5e5b7435334371, type: 2}
   m_sharedMaterial: {fileID: -5124941661815074340, guid: c5094978765690f4ba5e5b7435334371,
@@ -26911,6 +26911,7 @@ GameObject:
   - component: {fileID: 1316461219}
   - component: {fileID: 1316461220}
   - component: {fileID: 1316461221}
+  - component: {fileID: 1316461222}
   m_Layer: 0
   m_Name: Menu Controller
   m_TagString: Untagged
@@ -26957,6 +26958,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9645560c3e9281e439449276a49c9abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1316461222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316461217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05584fe6d9f4b3f428947679d0a7d990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1368056519
