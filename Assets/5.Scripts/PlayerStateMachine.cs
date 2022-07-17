@@ -24,7 +24,10 @@ namespace _5.Scripts
         // Dodge
         private Vector3 currentDodgeDirection;
         private bool _dodgeMovementOccurring;
-        
+
+        public GameObject projectile;
+        public Transform projectileOrigin;
+
         private void Awake()
         {
             _playerData = GetComponent<PlayerData>();
@@ -117,6 +120,7 @@ namespace _5.Scripts
                     break;
                 
                 case State.Casting:
+                    _playerMovement.RotatePlayer();
                     animator.SetTrigger("cast");
                     _playerData.MagicShots--;
                     LevelController.instance.UpdateUI();
@@ -151,6 +155,11 @@ namespace _5.Scripts
         {
             _dodgeMovementOccurring = false;
             damageable.dodging = false;
+        }
+        public void CreateProjectile()
+        {
+            var proj = Instantiate(projectile, projectileOrigin.position, projectileOrigin.rotation);
+            proj.transform.parent = null;
         }
     }
 }
