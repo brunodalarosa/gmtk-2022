@@ -32,8 +32,7 @@ namespace Global
                     if (attacksImmuneTo.Contains(attackId) == false)
                     {
                         if (gameObject.CompareTag("Player"))
-                            // NEED SOUND
-                            SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "player-die-1" : "player-die-2");
+                            SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "player-hurt-1" : "player-hurt-2");
                         else
                             SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "pierce-1" : "pierce-2");
                         
@@ -82,9 +81,13 @@ namespace Global
             vfxManager?.VfxDeath();
 
             if (gameObject.CompareTag("Player"))
+            {
                 SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "player-die-1" : "player-die-2");
-            else
-                SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "angel-die-1" : "angel-die-2");
+            }
+            else // is enemy
+            {
+                SoundManager.Instance?.PlaySFX(Random.Range(0, 3) == 0 ? "angel-die-1" : Random.Range(0, 2) == 0 ? "angel-die-2" : "angel-die-3");
+            }
         }
 
     }

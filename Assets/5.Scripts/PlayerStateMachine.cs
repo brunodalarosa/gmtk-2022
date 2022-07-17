@@ -120,6 +120,7 @@ namespace _5.Scripts
                 
                 case State.Casting:
                     animator.SetTrigger("cast");
+                    SoundManager.Instance?.PlaySFX("magic-missil");
                     _playerData.MagicShots--;
                     LevelController.instance.UpdateUI();
                     break;
