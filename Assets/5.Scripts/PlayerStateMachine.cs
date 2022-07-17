@@ -94,6 +94,7 @@ namespace _5.Scripts
                 case State.Walking:
                     break;
                 case State.Attacking:
+                    _playerMovement.RotatePlayer();
                     animator.SetTrigger("attack");
                     _playerData.Attacks--;
                     LevelController.instance.UpdateUI();

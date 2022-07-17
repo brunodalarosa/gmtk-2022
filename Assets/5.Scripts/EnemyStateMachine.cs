@@ -16,9 +16,9 @@ namespace _5.Scripts
             Dead
         }
         [SerializeField] private EnemyMovement _enemyMovement;
-        [SerializeField] private EnemyAttack _enemyAttack;
         [SerializeField] private EnemyData _enemyData;
         [SerializeField] private Damageable _damageable;
+        [SerializeField] private Animator _animator;
         
         public State CurrentState { get; private set; }
 
@@ -34,16 +34,13 @@ namespace _5.Scripts
                     if (distanceToPlayer < _enemyData.AttackRange)
                         ChangeState(State.Attacking);
                     else
+                    {
+                        _animator.SetFloat("moveRatio", 1);
                         _enemyMovement.MoveTowardsPlayer(_enemyData.moveSpeed);
+                    }
                     break;
                 
                 case State.Attacking:
-                    // Is attacking
-                    
-                    // DEBUG back to walking
-                    var playerDistance = Vector3.Distance(transform.position, _enemyMovement._playerTransform.position);
-                    if (playerDistance > _enemyData.AttackRange)
-                        ChangeState(State.Walking);
                     break;
                 
                 case State.Dead:
@@ -66,11 +63,11 @@ namespace _5.Scripts
             switch (state)
             {
                 case State.Walking:
-                    print("Back to walking!");
+                    _animator.SetFloat("moveRatio", 1);
                     break;
                 case State.Attacking:
-                    _enemyAttack.Attack();
-                    // Start attack
+                    _animator.SetFloat("moveRatio", 0);
+                    _animator.SetTrigger("attack");
                     break;
                 case State.Dead:
                     break;
@@ -78,6 +75,11 @@ namespace _5.Scripts
                     break;
             }
             CurrentState = state;
+        }
+
+        public void AttackEnd()
+        {
+            ChangeState(State.Walking);
         }
         
     }

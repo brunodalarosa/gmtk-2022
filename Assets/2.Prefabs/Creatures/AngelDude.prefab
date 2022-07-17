@@ -15275,7 +15275,6 @@ GameObject:
   - component: {fileID: 5814728871830640645}
   - component: {fileID: 30282768347719418}
   - component: {fileID: 4142886360971221398}
-  - component: {fileID: 622740161}
   - component: {fileID: 622740162}
   - component: {fileID: 7922470852759017879}
   - component: {fileID: 230083216829108050}
@@ -15386,22 +15385,9 @@ MonoBehaviour:
   maxHp: 0
   attack: 0
   moveSpeed: 1
-  AttackRange: 2
+  AttackRange: 1
   AttackCooldown: 0
   Score: 10
---- !u!114 &622740161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5814728871830640640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a458110e6a7034aabce7ca9e0834d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 4142886360971221398}
 --- !u!114 &622740162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15415,9 +15401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyMovement: {fileID: 30282768347719418}
-  _enemyAttack: {fileID: 622740161}
   _enemyData: {fileID: 4142886360971221398}
   _damageable: {fileID: 5814728871830640643}
+  _animator: {fileID: 5814728871830640641}
 --- !u!65 &7922470852759017879
 BoxCollider:
   m_ObjectHideFlags: 0

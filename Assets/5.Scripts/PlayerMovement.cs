@@ -48,7 +48,7 @@ namespace _5.Scripts
                 animator.SetFloat("moveRatio", 0);
         }
 
-        private void RotatePlayer()
+        public void RotatePlayer()
         {
             var CameraPosition = MouseWorld.GetPosition();
             transform.LookAt(new Vector3(CameraPosition.x, transform.position.y, CameraPosition.z));
