@@ -10,7 +10,7 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            LevelController.instance.AddD6ToPlayer();
+            LevelController.Instance.AddD6ToPlayer();
             Destroy(gameObject);
         }
     }
