@@ -112,12 +112,16 @@ namespace Global
         private IEnumerator LevelCooldownCoroutine()
         {
             yield return new WaitForSeconds(BeforeEnterLevelCooldownSeconds);
+            
             Debug.Log($"Entrou no level cooldown de {BetweenLevelsCooldownSeconds} segundos");
             //todo spawnar ferreiro?
             GeneralUi.SetTimer(BetweenLevelsCooldownSeconds);
+            
             yield return new WaitForSeconds(BetweenLevelsCooldownSeconds *.66f);
             GeneralUi.UpdateTimerStatus(UiAnimationType.qtyLow);
+            
             yield return new WaitForSeconds(BetweenLevelsCooldownSeconds *.33f);
+            
             GeneralUi.EndTimer();
             StartNewLevel();
 
@@ -127,7 +131,7 @@ namespace Global
         private void EnterDiceMenu()
         {
             paused = true;
-            RollDiceMenuOverlay.Init(PlayerData);
+            RollDiceMenuOverlay.InitAndRoll(PlayerData);
             Time.timeScale = PauseTimeScale;
             DOTween.defaultTimeScaleIndependent = true;
             DOTween.To(() => Time.timeScale, x => Time.timeScale= x, PauseTimeScale, .33f);
@@ -148,18 +152,13 @@ namespace Global
             Time.timeScale = 1;
         }
 
-        public Dice ApplyDiceRoll(RollType rollType, DiceType diceType)
+        public void ApplyDiceRoll(RollType rollType, int value)
         {
-            var dice = GetDiceOfType(diceType);
-
-            if (dice == null) return null;
-            
-            PlayerData.RollDice(rollType, dice);
+            PlayerData.ApplyDiceRoll(rollType, value);
             GeneralUi.Refresh(PlayerData);
-            return dice;
         }
 
-        private Dice GetDiceOfType(DiceType diceType)
+        public Dice GetDiceOfType(DiceType diceType)
         {
             try
             {

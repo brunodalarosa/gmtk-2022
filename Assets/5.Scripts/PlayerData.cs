@@ -40,61 +40,56 @@ namespace Global
             _playerAttackCollider.SetDamage(AttackDamage);
         }
 
-        public void RollDice(RollType rollType, Dice dice)
+        public void ApplyDiceRoll(RollType rollType, int rollValue)
         {
             switch (rollType)
             {
                 case RollType.Life:
-                    RollHp(dice);
+                    RollHp(rollValue);
                     break;
                 case RollType.Attack:
-                    RollAttack(dice);
+                    RollAttack(rollValue);
                     break;
                 case RollType.Magic:
-                    RollMagic(dice);
+                    RollMagic(rollValue);
                     break;
                 case RollType.Dodge:
-                    RollDodge(dice);
+                    RollDodge(rollValue);
                     break;
                 case RollType.Score:
-                    RollScore(dice);
+                    RollScore(rollValue);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(rollType), rollType, null);
             }
         }
 
-        private void RollHp(Dice dice)
+        private void RollHp(int value)
         {
-            Hp += dice.Roll();
-            DiscardDice(dice);
+            Hp += value;
         }
         
-        private void RollAttack(Dice dice)
+        private void RollAttack(int value)
         {
-            Attacks += dice.Roll();
-            DiscardDice(dice);
+            Attacks += value;
         }
         
-        private void RollMagic(Dice dice)
+        private void RollMagic(int value)
         {
-            MagicShots += dice.Roll();
-            DiscardDice(dice);
+            MagicShots += value;
         }
         
-        private void RollDodge(Dice dice)
+        private void RollDodge(int value)
         {
-            Dodges += dice.Roll();
-            DiscardDice(dice);
+            Dodges += value;
         }
         
-        private void RollScore(Dice dice)
+        private void RollScore(int value)
         {
-            Score += dice.Roll();
-            DiscardDice(dice);
+            Score += value;
         }
 
-        private void DiscardDice(Dice dice)
+        public void DiscardDice(Dice dice)
         {
             DiceBag.RemoveDice(dice);
         }
