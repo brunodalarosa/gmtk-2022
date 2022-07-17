@@ -10,6 +10,7 @@ namespace _5.Scripts
     {
         [SerializeField] private CharacterController controller;
         [SerializeField] private float moveSpeed = 6f;
+        [SerializeField] private float dashSpeed = 2f;
         [SerializeField] private Animator animator;
         private Vector3 _playerVelocity;
         private float _playerAngle;
@@ -51,6 +52,18 @@ namespace _5.Scripts
         {
             var CameraPosition = MouseWorld.GetPosition();
             transform.LookAt(new Vector3(CameraPosition.x, transform.position.y, CameraPosition.z));
+        }
+
+        public Vector3 GetDodgeDirection()
+        {
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            return new Vector3(horizontal, 0f, vertical).normalized;
+        }
+
+        public void Dodge(Vector3 direction)
+        {
+            controller.Move(direction * (dashSpeed * Time.deltaTime));
         }
     }
 }

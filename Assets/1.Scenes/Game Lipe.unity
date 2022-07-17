@@ -5370,6 +5370,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: _5.Scripts.LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6322337652001849149, guid: 33c7cf237067e3d44b631423074bf279,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.438232
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322337652001849149, guid: 33c7cf237067e3d44b631423074bf279,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 218.80005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33c7cf237067e3d44b631423074bf279, type: 3}
 --- !u!1001 &1316882991
@@ -18219,6 +18229,16 @@ PrefabInstance:
       propertyPath: _playerDamageOnContact
       value: 
       objectReference: {fileID: 996615822}
+    - target: {fileID: 2593882292834129476, guid: acce47537e5805349b3a6e783db2cea9,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593882292834129476, guid: acce47537e5805349b3a6e783db2cea9,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6297539734381757162, guid: acce47537e5805349b3a6e783db2cea9,
         type: 3}
       propertyPath: m_Name

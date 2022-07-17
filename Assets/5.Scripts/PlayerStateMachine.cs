@@ -18,7 +18,11 @@ namespace _5.Scripts
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerData _playerData;
         public Animator animator;
-
+        
+        // Dodge
+        private Vector3 currentDodgeDirection;
+        private bool _dodgeMovementOccurring;
+        
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -71,6 +75,8 @@ namespace _5.Scripts
                     break;
                 
                 case State.Dodging:
+                    if (_dodgeMovementOccurring) 
+                        _playerMovement.Dodge(currentDodgeDirection);
                     break;
                 
                 case State.Dying:
@@ -95,6 +101,8 @@ namespace _5.Scripts
                 case State.Dodging:
                     animator.SetTrigger("dodge");
                     _playerData.Dodges--;
+                    currentDodgeDirection = _playerMovement.GetDodgeDirection();
+                    _dodgeMovementOccurring = true;
                     LevelController.instance.UpdateUI();
                     break;
                 case State.Casting:
@@ -123,6 +131,11 @@ namespace _5.Scripts
         public void CastEnd()
         {
             ChangeState(State.Walking);
+        }
+
+        public void StopDodgeMovement()
+        {
+            _dodgeMovementOccurring = false;
         }
     }
 }
