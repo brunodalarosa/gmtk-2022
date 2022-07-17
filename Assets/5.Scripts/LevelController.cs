@@ -17,7 +17,7 @@ namespace Global
         [field:Header("God Stuff")]
         [field:SerializeField] private Rngesus Rngesus { get; set; }
 
-        [field: SerializeField] private float IntervalBetweenGodDiceRollTries { get; set; } = 5f;
+        [field: SerializeField] private float IntervalBetweenGodDiceRollTries { get; set; } = 3f;
         [field:SerializeField] public GameObject EnemiesParent { get; set; }
         [field: SerializeField] private Animator AnimatorRngesus { get; set; }
 
@@ -71,6 +71,8 @@ namespace Global
 
         private void Start()
         {
+            DebugButtonParent.gameObject.SetActive(false);
+            
             GeneralUi.Refresh(PlayerData);
             UpdateDiceMenuButtonState(PlayerData);
             StartNewLevel();
@@ -150,7 +152,7 @@ namespace Global
             DOTween.defaultTimeScaleIndependent = true;
             DOTween.To(() => Time.timeScale, x => Time.timeScale= x, PauseTimeScale, .33f);
             DOTween.To(() => filterPause.weight, x => filterPause.weight = x, 1, .33f);
-            DebugButtonParent.gameObject.SetActive(false);
+            // DebugButtonParent.gameObject.SetActive(false);
             GeneralUi.transform.SetParent(RollDiceMenuOverlay.Content.transform, true);
             GeneralUi.RollDice();
         }
@@ -159,7 +161,7 @@ namespace Global
         {
             paused = false;
             GeneralUi.transform.SetParent(Canvas.transform, true);
-            DebugButtonParent.gameObject.SetActive(true);
+            // DebugButtonParent.gameObject.SetActive(true);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1, .33f);
             DOTween.To(() => filterPause.weight, x => filterPause.weight = x, 0, .33f);
 

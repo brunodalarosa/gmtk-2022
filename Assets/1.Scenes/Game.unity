@@ -824,7 +824,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7771639, y: 1}
   m_Transitions:
     m_BlendHint: 1
     m_InheritPosition: 0
@@ -9514,6 +9514,10 @@ PrefabInstance:
       propertyPath: <RollDiceMenuOverlay>k__BackingField
       value: 
       objectReference: {fileID: 1361552079}
+    - target: {fileID: 1008531733, guid: 24671c8e9ef3a7948b38f62cac3787db, type: 3}
+      propertyPath: <IntervalBetweenGodDiceRollTries>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2923185713591921990, guid: 24671c8e9ef3a7948b38f62cac3787db,
         type: 3}
       propertyPath: weight
@@ -9733,8 +9737,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027196155}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: -0.000071990486, y: 6.15, z: -5.200001}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: -0.00009441374, y: 6.0000005, z: -9}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24516,7 +24520,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7771639, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

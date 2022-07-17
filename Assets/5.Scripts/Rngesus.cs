@@ -50,24 +50,25 @@ public class Rngesus : MonoBehaviour
         {
             case <= 2:
                 if (worst) break;
+                if (critical) ToGainADiceRowOffset += 0.5f;
                 
-                ToGainADiceRowOffset += 0.34f;
+                ToGainADiceRowOffset += 0.5f;
                 break;
             
             case <= 4:
                 if (worst) break;
                 if (critical) ToGainADiceRowOffset += 0.5f;
                 
-                ToGainADiceRowOffset += 0.5f;
+                ToGainADiceRowOffset += 0.75f;
                 break;
             
             case <= 9:
-                ToGainADiceRowOffset += 0.75f;
+                ToGainADiceRowOffset += 1f;
                 break;
             
             default:
                 if (critical) ToGainADiceRowOffset += 1f;
-                ToGainADiceRowOffset += 1f;
+                ToGainADiceRowOffset += 1.5f;
                 break;
         }
 
