@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/1.Scenes/Menu.unity
     guid: aa48f5dfbfb5f294caea304c13f0ec8a
   - enabled: 1
-    path: Assets/1.Scenes/Game Novo Lipe.unity
-    guid: 003db8448449a0a4e836b69bfefe065d
+    path: Assets/1.Scenes/Game.unity
+    guid: e8a932cfa34c34d4fa18faceb3e04bfc
+  - enabled: 1
+    path: Assets/1.Scenes/GameOver.unity
+    guid: 600b151b08642024aba941e35530c09d
   m_configObjects: {}

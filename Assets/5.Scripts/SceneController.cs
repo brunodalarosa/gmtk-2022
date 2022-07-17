@@ -8,7 +8,7 @@ namespace _5.Scripts
         public static void GoToGameScene()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("1.Scenes/Game Novo Lipe");
+            SceneManager.LoadScene("1.Scenes/Game");
         }
     
         public static void GoToMainMenu()

@@ -20,6 +20,7 @@ namespace Global
         public int DiceQtd => DiceBag.DiceQtd;
 
         [SerializeField] private DamageOnContact _playerAttackCollider;
+        [SerializeField] private Damageable _damageable;
         
 
         private void Awake()
@@ -75,6 +76,8 @@ namespace Global
             Hp += value;
 
             if (Hp <= 0) Hp = 1;
+            
+            _damageable.ApplyNewHpValue((int)Hp);
         }
         
         private void RollAttack(int value)
