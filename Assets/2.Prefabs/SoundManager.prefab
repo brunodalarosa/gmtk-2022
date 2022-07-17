@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMs:
   - name: misforTune
-    clip: {fileID: 8300000, guid: f4d24a80af4bac34ab277b6772355e61, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: fc62d13d05f5aeb41b2076e8a6bb3d43, type: 3}
+    volume: 0.7
     loop: 1
     source: {fileID: 0}
   - name: bgm-menu
