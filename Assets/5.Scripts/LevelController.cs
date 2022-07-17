@@ -160,9 +160,9 @@ namespace Global
             Time.timeScale = 1;
         }
 
-        public void ApplyDiceRoll(RollType rollType, int value)
+        public void ApplyDiceRoll(RollType rollType, int value, int rolledValue)
         {
-            Rngesus.OnPlayerRolledDice(value);
+            Rngesus.OnPlayerRolledDice(rolledValue);
             PlayerData.ApplyDiceRoll(rollType, value);
             GeneralUi.Refresh(PlayerData);
         }

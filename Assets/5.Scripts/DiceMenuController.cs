@@ -110,22 +110,85 @@ public class DiceMenuController : MonoBehaviour
 
         DiceResultPanel.GetComponent<RectTransform>().DOScale(1, .25f).SetEase(ResultCurve);
 
-
-        //todo: farinha aqui chama a animação, rolledValue contém o valor rolado e chamar linha de baixo pós animação
         BeforeChoiceSetAnimatorStates();
         ToggleButtonsEnabled(true);
 
     }
-    private void ApplyRolledDice(RollType rollType, int value)
+    private void ApplyRolledDice(RollType rollType, int rolledValue)
     {
         AfterChoiceSetAnimatorStates(rollType);
-        LevelController.Instance.ApplyDiceRoll(rollType, value);
+
+        var adjustedValue = GetActualRollTypeAdjustedValue(rollType, rolledValue);
+        
+        LevelController.Instance.ApplyDiceRoll(rollType, adjustedValue, rolledValue);
         DiceResultPanel.GetComponent<RectTransform>().DOScale(0, .25f).SetEase(ResultCurve);
         StopAllCoroutines();
         StartCoroutine(ExitDiceMenu());
-        //todo: farinha aqui chama a animação, rolledValue contém o valor rolado e chamar linha de baixo pós animação
     }
-    
+
+    private int GetActualRollTypeAdjustedValue(RollType rollType, int rolledValue)
+    {
+        switch(rollType)
+        {
+            case RollType.Life:
+                switch (rolledValue)
+                {
+                    case 1: return 5;
+                    case 2: return 10;
+                    case 3: return 15;
+                    case 4: return 15;
+                    case 5: return 20;
+                    case 6: return 35;
+                }
+                break;
+            case RollType.Attack:
+                switch (rolledValue)
+                {
+                    case 1: return 1;
+                    case 2: return 4;
+                    case 3: return 4;
+                    case 4: return 8;
+                    case 5: return 8;
+                    case 6: return 15;
+                }
+                break;
+            case RollType.Magic:
+                switch (rolledValue)
+                {
+                    case 1: return 1;
+                    case 2: return 1;
+                    case 3: return 2;
+                    case 4: return 2;
+                    case 5: return 3;
+                    case 6: return 5;
+                }
+                break;
+            case RollType.Dodge:
+                switch (rolledValue)
+                {
+                    case 1: return 2;
+                    case 2: return 2;
+                    case 3: return 5;
+                    case 4: return 5;
+                    case 5: return 8;
+                    case 6: return 12;
+                }
+                break;
+            case RollType.Score:
+                switch (rolledValue)
+                {
+                    case 1: return 10;
+                    case 2: return 100;
+                    case 3: return 100;
+                    case 4: return 150;
+                    case 5: return 666;
+                    case 6: return 1000;
+                }
+                break;
+        }
+        return 0;
+    }
+
     private IEnumerator ExitDiceMenu()
     {
         yield return new WaitForSecondsRealtime(.25f);

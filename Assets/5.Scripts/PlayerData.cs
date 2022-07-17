@@ -26,7 +26,7 @@ namespace Global
         {
             MaxHp = 100;
             Hp = 100;
-            Attacks = 50;//5;
+            Attacks = 10;
             AttackDamage = 20;
             MagicShots = 3;
             Dodges = 5;
@@ -73,21 +73,26 @@ namespace Global
         private void RollHp(int value)
         {
             Hp += value;
+
+            if (Hp <= 0) Hp = 1;
         }
         
         private void RollAttack(int value)
         {
             Attacks += value;
+            if (Attacks < 0) Attacks = 0;
         }
         
         private void RollMagic(int value)
         {
             MagicShots += value;
+            if (MagicShots < 0) MagicShots = 0;
         }
         
         private void RollDodge(int value)
         {
             Dodges += value;
+            if (Dodges < 0) Dodges = 0;
         }
         
         private void RollScore(int value)
