@@ -19,6 +19,8 @@ namespace Global
 
         [field: SerializeField] private float IntervalBetweenGodDiceRollTries { get; set; } = 5f;
         [field:SerializeField] public GameObject EnemiesParent { get; set; }
+        [field: SerializeField] private Animator AnimatorRngesus { get; set; }
+
         private List<EnemyData> Enemies { get; set; }
 
         [field: Header("Level Control")]
@@ -212,7 +214,35 @@ namespace Global
         
         public float AnimateGodDiceRoll(int rolledValue)
         {
-            return 1.0f; //todo FARINHA aqui você chama todas as animações de deus rolando o dado com o valor que veio como parametro e depois retorna um float com os segundos que essas animações vão demorar! :D
+            StartCoroutine(DiceRollSequence(rolledValue));
+            return 5.0f;
+        }
+
+        private IEnumerator DiceRollSequence(int rolledValue)
+        {
+            AnimatorRngesus.SetBool("spawned", true);
+            yield return new WaitForSeconds(2f);
+            AnimatorRngesus.SetTrigger("dice");
+            yield return new WaitForSeconds(2f);
+
+            switch (rolledValue)
+            {
+                case 1:
+                case 2:
+                    AnimatorRngesus.SetTrigger("angry");
+                    break;
+                case 3:
+                case 4:
+                    break;
+                case 5:
+                case 6:
+                    AnimatorRngesus.SetTrigger("happy");
+                    break;
+
+            }
+            GeneralUi.RollGodDice(rolledValue);
+            yield return new WaitForSeconds(1.5f);
+            AnimatorRngesus.SetBool("spawned", false);
         }
 
         public void PlayerCurseDiceRoll(RollType rollType, int value)

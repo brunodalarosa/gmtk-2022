@@ -32,10 +32,14 @@ namespace Global
         [field: SerializeField] private Image TimerFillImage { get; set; }
         [field: SerializeField] private TextMeshProUGUI TimerLabelValue { get; set; }
         [field: SerializeField] private AnimationCurve TimerCurve { get; set; }
+        [field: SerializeField] private RectTransform GodDiceTransform { get; set; }
+        [field: SerializeField] private Tween GodDiceTween { get; set; }
 
         private void Start()
         {
             TimerGroup.alpha = 0;
+            GodDiceTransform.DOScale(0, 0);
+        
             
         }
 
@@ -58,6 +62,19 @@ namespace Global
         {
             AnimatorDiceRoller.SetTrigger("press");
             SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "dice-1" : "dice-2");
+
+
+        }
+        public void RollGodDice(int rolledValue)
+        {
+            SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "dice-1" : "dice-2");
+
+            GodDiceTransform.GetComponentInChildren<TextMeshProUGUI>().text = rolledValue.ToString();
+
+            Sequence seq = DOTween.Sequence();
+            seq.Insert(0, GodDiceTransform.DOScale(1, .25f).SetEase(Ease.OutBack));
+            seq.Insert(4, GodDiceTransform.DOScale(0, .25f).SetEase(Ease.OutBack));
+            seq.Play();
 
         }
 
