@@ -18,7 +18,7 @@ namespace Global
 
         public int DiceQtd => DiceBag.DiceQtd;
 
-        [SerializeField] private DamageOnContact _playerDamageOnContact;
+        [SerializeField] private DamageOnContact _playerAttackCollider;
         
 
         private void Awake()
@@ -37,7 +37,7 @@ namespace Global
             DiceBag.AddNewDice(DiceType.D6);
             
             // Set the player damage
-            _playerDamageOnContact.SetDamage(AttackDamage);
+            _playerAttackCollider.SetDamage(AttackDamage);
         }
 
         public void RollDice(RollType rollType, Dice dice)

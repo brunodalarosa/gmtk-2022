@@ -17,9 +17,9 @@ namespace _5.Scripts
         }
         
         [SerializeField] private PlayerMovement _playerMovement;
-        [SerializeField] private PlayerData _playerData;
+        private PlayerData _playerData;
         private Damageable damageable;
-        public Animator animator;
+        private Animator animator;
         
         // Dodge
         private Vector3 currentDodgeDirection;
@@ -27,6 +27,7 @@ namespace _5.Scripts
         
         private void Awake()
         {
+            _playerData = GetComponent<PlayerData>();
             animator = GetComponent<Animator>();
             damageable = GetComponent<Damageable>();
         }

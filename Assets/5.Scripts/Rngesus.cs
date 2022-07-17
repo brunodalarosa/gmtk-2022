@@ -57,6 +57,6 @@ public class Rngesus : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopCoroutine(SpawningEnemiesCoroutine);
+        StopAllCoroutines();
     }
 }

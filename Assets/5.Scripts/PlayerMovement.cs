@@ -11,18 +11,18 @@ namespace _5.Scripts
         [SerializeField] private CharacterController controller;
         [SerializeField] private float moveSpeed = 6f;
         [SerializeField] private float dashSpeed = 2f;
-        [SerializeField] private Animator animator;
+        private Animator _animator;
         private Vector3 _playerVelocity;
         private float _playerAngle;
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
         }
 
         public void HandleMovement()
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("player_idle") || animator.GetCurrentAnimatorStateInfo(0).IsName("player_move"))
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("player_idle") || _animator.GetCurrentAnimatorStateInfo(0).IsName("player_move"))
             {
                 Move();
                 RotatePlayer();
@@ -42,10 +42,10 @@ namespace _5.Scripts
             if (direction.magnitude >= 0.1f)
             {
                 controller.Move(direction * (moveSpeed * Time.deltaTime));
-                animator.SetFloat("moveRatio", 1);
+                _animator.SetFloat("moveRatio", 1);
             }
             else
-                animator.SetFloat("moveRatio", 0);
+                _animator.SetFloat("moveRatio", 0);
         }
 
         public void RotatePlayer()
