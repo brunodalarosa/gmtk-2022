@@ -254,7 +254,7 @@ MonoBehaviour:
   <EnemiesParent>k__BackingField: {fileID: 0}
   <CurrentLevel>k__BackingField: 0
   <BeforeEnterLevelCooldownSeconds>k__BackingField: 2
-  <BetweenLevelsCooldownSeconds>k__BackingField: 10
+  <BetweenLevelsCooldownSeconds>k__BackingField: 3
   <Canvas>k__BackingField: {fileID: 0}
   <DebugButtonParent>k__BackingField: {fileID: 0}
   <DebugGetAd6Button>k__BackingField: {fileID: 0}
