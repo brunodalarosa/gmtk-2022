@@ -43,6 +43,7 @@ namespace _5.Scripts
 
         public void OpenGameOverMenu()
         {
+            SoundManager.Instance.PlaySFX("lose");
             gameOverPanel.gameObject.SetActive(true);
         }
     }

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections;
+using _5.Scripts;
 
 namespace Global
 {
@@ -56,6 +57,7 @@ namespace Global
         public void RollDice()
         {
             AnimatorDiceRoller.SetTrigger("press");
+            SoundManager.Instance.PlaySFX(Random.Range(0, 2) == 0 ? "dice-1" : "dice-2");
 
         }
 

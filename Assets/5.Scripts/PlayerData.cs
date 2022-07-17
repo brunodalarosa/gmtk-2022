@@ -1,4 +1,5 @@
 using System;
+using _5.Scripts;
 using _5.Scripts.Gameplay;
 using UnityEngine;
 
@@ -45,18 +46,23 @@ namespace Global
             switch (rollType)
             {
                 case RollType.Life:
+                    SoundManager.Instance.PlaySFX("heal");
                     RollHp(rollValue);
                     break;
                 case RollType.Attack:
+                    SoundManager.Instance.PlaySFX("attack-recharge");
                     RollAttack(rollValue);
                     break;
                 case RollType.Magic:
+                    // NEED SOUND
                     RollMagic(rollValue);
                     break;
                 case RollType.Dodge:
+                    SoundManager.Instance.PlaySFX("dodge-recharge");
                     RollDodge(rollValue);
                     break;
                 case RollType.Score:
+                    SoundManager.Instance.PlaySFX("player-upgrade");
                     RollScore(rollValue);
                     break;
                 default:
