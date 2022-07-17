@@ -15387,7 +15387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   attack: 0
-  moveSpeed: 1
+  moveSpeed: 1.5
   AttackRange: 1
   AttackCooldown: 0
   Score: 10

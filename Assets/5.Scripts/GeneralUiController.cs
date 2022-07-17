@@ -29,7 +29,6 @@ namespace Global
 
         [field: Header("Timer")]
         [field: SerializeField] private CanvasGroup TimerGroup { get; set; }
-        [field: SerializeField] private Image TimerFillImage { get; set; }
         [field: SerializeField] private TextMeshProUGUI TimerLabelValue { get; set; }
         [field: SerializeField] private AnimationCurve TimerCurve { get; set; }
         [field: SerializeField] private RectTransform GodDiceTransform { get; set; }
@@ -85,9 +84,6 @@ namespace Global
             StartCoroutine(TimerLabelUpdate(time));
             UpdateTimerStatus(UiAnimationType.qtyNormal);
             TimerGroup.DOFade(1, .5f).SetEase(TimerCurve);
-
-            TimerFillImage.fillAmount = 1;
-            TimerFillImage.DOFillAmount(0, time);
 
         }
         public void EndTimer()

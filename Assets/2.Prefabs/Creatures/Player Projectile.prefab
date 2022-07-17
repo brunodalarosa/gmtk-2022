@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4a0fe24a8c965449b63c0c768e60f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   randomizeId: 1
   id: 0
 --- !u!1 &8336305497152776328
