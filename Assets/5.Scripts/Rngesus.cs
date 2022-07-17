@@ -7,6 +7,8 @@ public class Rngesus : MonoBehaviour
 {
     [field: SerializeField] private EnemySpawner Spawner { get; set; }
     [field: SerializeField] private EnemyData EnemyPrefab { get; set; }
+    
+    [field: SerializeField] private HazardsSpawner HazardsSpawner { get; set; }
 
     [field: Header("Tweaking")]
     [field: SerializeField]
@@ -102,7 +104,7 @@ public class Rngesus : MonoBehaviour
             case <= 3:
                 CastEasyCurse(rolledValue);
                 break;
-            case < 7:
+            case <= 7:
                 CastStandardCurse(rolledValue);
                 break;
             default:
@@ -113,62 +115,102 @@ public class Rngesus : MonoBehaviour
     
     private void CastEasyCurse(int rolledValue)
     {
-        if (rolledValue <= 2)
+        if (rolledValue == 1) // 1
         {
-            EnemySpawnInterval = 0.25f;
+            var quantity = Dice.Roll();
+            HazardsSpawner.SpawnHazards(HazardType.Dice, quantity > 4 ? quantity : quantity * 2, 0.5f);
+        }
+        else if (rolledValue <= 3) // 2 & 3
+        {
+            EnemySpawnInterval = 0.33f;
             SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(rolledValue));
         }
         else if (rolledValue <= 5)
         {
-            RollType rollType = rolledValue == 5 ? RollType.Attack : RollType.Dodge;
-            int value = rolledValue == 5 ? 2 : 1;
-            
-            LevelController.Instance.PlayerCurseDiceRoll(rollType, value);
+            HazardsSpawner.SpawnHazards(HazardType.Lightning, 3, 0.33f);
         }
         else
         {
-            LevelController.Instance.PlayerCurseDiceRoll(RollType.Life, 5);
+            CastEasyCurse(3); // spawn 3 inimigos
+            HazardsSpawner.SpawnHazards(HazardType.Lightning, 2, 0.1f);
+            HazardsSpawner.SpawnHazards(HazardType.Fire, 1, 1f);
         }
     }
     
-    private void CastStandardCurse(int rolledValue)
+    private void CastStandardCurse(int rolledValue) 
     {
         if (rolledValue == 1) // 1
         {
-            EnemySpawnInterval = 0.15f;
-            SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(2));
+            HazardsSpawner.SpawnHazards(HazardType.Dice, Dice.Roll(), 0.5f);
         }
         else if (rolledValue <= 2) // 2
         {
-            CastStandardCurse(1);
-            //todo Debuff de velocidade no player
+            CastEasyCurse(3); // spawn 3 inimigos
         }
         else if (rolledValue <= 4) // 3 & 4
         {
-            RollType rollType = rolledValue == 4 ? RollType.Magic : RollType.Attack;
-            int value = rolledValue == 3 ? 2 : 3;
-            
-            LevelController.Instance.PlayerCurseDiceRoll(rollType, value);
+            CastEasyCurse(3); // spawn 3 inimigos
+            CastEasyCurse(5); // spawn 3 raios  
         }
         else if (rolledValue == 5) // 5
         {
-            CastEasyCurse(2);
-            //Todo Spawnar fogueira num lugar aleatório do mapa?
+            HazardsSpawner.SpawnHazards(HazardType.Fire, 2, 1f);
+            EnemySpawnInterval = 0.25f;
+            SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(rolledValue));
         }
         else // 6
         {
             EnemySpawnInterval = 0.15f;
             SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(3));
-            //Todo buffar 3 inimgos com speed
-            LevelController.Instance.PlayerCurseDiceRoll(RollType.Life, 10);
+            
+            HazardsSpawner.SpawnHazards(HazardType.Fire, 2, 0.75f);
+            
+            CastEasyCurse(5); // spawn 3 raios  
+            
+            HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 1, 1f);
         }
     }
 
     private void CastHardCurse(int rolledValue)
     {
-        //TODO BRINCAR AQUI
-        CastStandardCurse(rolledValue == 6 ? 6 : 2);
-        CastStandardCurse(4);
+        switch (rolledValue)
+        {
+            case 1:
+                HazardsSpawner.SpawnHazards(HazardType.Dice, Dice.Roll(), 0.75f);
+                break;
+            
+            case 2:
+                CastStandardCurse(3); // Spawn 3 inimigos + 3 raios
+                break;
+            
+            case 3:
+                EnemySpawnInterval = 0.1f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(4));
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 2, 0.5f);
+                break;
+            
+            case 4:
+                CastStandardCurse(5); // Spawn 5 inimigos + 2 fogos 
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 3, 1f);
+                break;
+            
+            case 5: 
+                CastEasyCurse(5); // spawn 3 raios
+                CastStandardCurse(5); // Spawn 5 inimigos + 2 fogos 
+                CastEasyCurse(5); // spawn 3 raios
+                break;
+            
+            default:
+                CastEasyCurse(5); // spawn 3 raios
+                
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 3, 0.33f);
+                
+                EnemySpawnInterval = 0.1f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(6));
+                
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 2, 0.5f);
+                break;
+        }
     }
 
     public void OnLevelStarted()
