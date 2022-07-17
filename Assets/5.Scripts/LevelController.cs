@@ -86,8 +86,11 @@ namespace Global
 
         private IEnumerator GodDiceRolling()
         {
-            yield return new WaitForSeconds(IntervalBetweenGodDiceRollTries);
-            Rngesus.GodTryRoll();
+            while (true)
+            {
+                yield return new WaitForSeconds(IntervalBetweenGodDiceRollTries);
+                Rngesus.GodTryRoll();
+            }
         }
 
         public void AddNewEnemy(EnemyData enemy)
