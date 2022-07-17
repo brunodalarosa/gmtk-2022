@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4a0fe24a8c965449b63c0c768e60f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 1423637650412870893}
+  damage: 20
   randomizeId: 1
   id: 0
 --- !u!1 &3954422459242365194
@@ -1014,7 +1014,6 @@ GameObject:
   - component: {fileID: 5762697350160136422}
   - component: {fileID: 8289651808925770926}
   - component: {fileID: 853720464}
-  - component: {fileID: 2561942654034040413}
   - component: {fileID: 1423637650412870893}
   m_Layer: 0
   m_Name: PlayerDevilTest
@@ -1074,6 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6297539734381757166}
   moveSpeed: 2.5
+  dashSpeed: 2
   animator: {fileID: 0}
 --- !u!143 &6297539734381757166
 CharacterController:
@@ -1155,22 +1155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 2593882292834129476}
-  _playerAttack: {fileID: 2561942654034040413}
   _playerData: {fileID: 0}
   animator: {fileID: 0}
---- !u!114 &2561942654034040413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6297539734381757162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e615df72517f9b245ad7a5188a533e2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStateMachine: {fileID: 853720464}
 --- !u!114 &1423637650412870893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140f4bd274a74012a601887d3a0104d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerDamageOnContact: {fileID: 0}
 --- !u!1 &6297539734414236893
 GameObject:
   m_ObjectHideFlags: 0

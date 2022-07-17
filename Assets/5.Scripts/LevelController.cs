@@ -168,7 +168,7 @@ namespace Global
 
         private void OnDestroy()
         {
-            StopCoroutine(OnLevelCooldownCoroutine);
+            StopAllCoroutines();
         }
 
         public void UpdateUI()
