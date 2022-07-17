@@ -12,6 +12,7 @@ namespace Global
         public float immunitySeconds;
         public List<int> attacksImmuneTo = new List<int>();
         public bool dead;
+        public bool dodging; 
 
         [Header("Components")]
         public VFXManager vfxManager;
@@ -25,10 +26,13 @@ namespace Global
         {
             if (!dead)
             {
-                if (attacksImmuneTo.Contains(attackId) == false)
+                if (!dodging)
                 {
-                    HpChange(-value);
-                    StartCoroutine(Iframes(attackId));
+                    if (attacksImmuneTo.Contains(attackId) == false)
+                    {
+                        HpChange(-value);
+                        StartCoroutine(Iframes(attackId));
+                    }
                 }
             }
         }
@@ -70,5 +74,6 @@ namespace Global
             dead = true;
             vfxManager?.VfxDeath();
         }
+
     }
 }
