@@ -34,6 +34,7 @@ namespace Global
         [field: SerializeField] private AnimationCurve TimerCurve { get; set; }
         [field: SerializeField] private RectTransform GodDiceTransform { get; set; }
         [field: SerializeField] private Tween GodDiceTween { get; set; }
+        [field: SerializeField] private Color[] GodDiceColors { get; set; }
 
         private void Start()
         {
@@ -70,6 +71,7 @@ namespace Global
             SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "dice-1" : "dice-2");
 
             GodDiceTransform.GetComponentInChildren<TextMeshProUGUI>().text = rolledValue.ToString();
+            GodDiceTransform.GetComponentInChildren<TextMeshProUGUI>().color = GodDiceColors[rolledValue-1];
 
             Sequence seq = DOTween.Sequence();
             seq.Insert(0, GodDiceTransform.DOScale(1, .25f).SetEase(Ease.OutBack));
