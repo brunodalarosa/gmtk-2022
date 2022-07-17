@@ -114,7 +114,7 @@ MonoBehaviour:
   speed: 10
   body: {fileID: 0}
   animator: {fileID: 0}
-  autoDestroyDelay: 3
+  autoDestroyDelay: 1
 --- !u!135 &5923597152356575117
 SphereCollider:
   m_ObjectHideFlags: 0
