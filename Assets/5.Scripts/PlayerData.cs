@@ -26,10 +26,10 @@ namespace Global
         {
             MaxHp = 100;
             Hp = 100;
-            Attacks = 10;
+            Attacks = 20;
             AttackDamage = 20;
-            MagicShots = 3;
-            Dodges = 5;
+            MagicShots = 10;
+            Dodges = 10;
             Score = 0;
             
             DiceBag = new DiceBag();

@@ -144,12 +144,12 @@ public class DiceMenuController : MonoBehaviour
             case RollType.Attack:
                 switch (rolledValue)
                 {
-                    case 1: return 1;
-                    case 2: return 4;
-                    case 3: return 4;
-                    case 4: return 8;
-                    case 5: return 8;
-                    case 6: return 15;
+                    case 1: return 3;
+                    case 2: return 5;
+                    case 3: return 8;
+                    case 4: return 10;
+                    case 5: return 15;
+                    case 6: return 25;
                 }
                 break;
             case RollType.Magic:
@@ -160,14 +160,14 @@ public class DiceMenuController : MonoBehaviour
                     case 3: return 2;
                     case 4: return 2;
                     case 5: return 3;
-                    case 6: return 5;
+                    case 6: return 6;
                 }
                 break;
             case RollType.Dodge:
                 switch (rolledValue)
                 {
                     case 1: return 2;
-                    case 2: return 2;
+                    case 2: return 3;
                     case 3: return 5;
                     case 4: return 5;
                     case 5: return 8;
@@ -181,8 +181,8 @@ public class DiceMenuController : MonoBehaviour
                     case 2: return 100;
                     case 3: return 100;
                     case 4: return 150;
-                    case 5: return 666;
-                    case 6: return 1000;
+                    case 5: return 300;
+                    case 6: return 666;
                 }
                 break;
         }
