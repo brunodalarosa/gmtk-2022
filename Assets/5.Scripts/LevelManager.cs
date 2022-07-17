@@ -20,13 +20,6 @@ namespace _5.Scripts
             {
                 OpenPauseMenu();
             }
-            
-            // DEBUG GAME OVER
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                OpenGameOverMenu();
-            }
-
         }
 
         private void OpenPauseMenu()
@@ -43,8 +36,7 @@ namespace _5.Scripts
 
         public void OpenGameOverMenu()
         {
-            SoundManager.Instance?.PlaySFX("lose");
-            gameOverPanel.gameObject.SetActive(true);
+            
         }
     }
 }

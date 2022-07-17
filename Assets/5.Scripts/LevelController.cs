@@ -60,6 +60,11 @@ namespace Global
         {
             PlayerData.UpdateHp(value);
             UpdateUI();
+
+            if (PlayerData.Hp <= 0)
+            {
+                SceneController.GoToGameOver();
+            }
         }
 
         private void Start()

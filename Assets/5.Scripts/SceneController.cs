@@ -14,9 +14,15 @@ namespace _5.Scripts
         public static void GoToMainMenu()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("1.Scenes/Menu");
         }
-    
+        
+        public static void GoToGameOver()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("1.Scenes/GameOver");
+        }
+
         public static void QuitGame()
         {
             Time.timeScale = 1f;
