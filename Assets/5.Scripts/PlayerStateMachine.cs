@@ -1,3 +1,4 @@
+using _5.Scripts.Gameplay;
 using Global;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -16,8 +17,9 @@ namespace _5.Scripts
         }
         
         [SerializeField] private PlayerMovement _playerMovement;
-        [SerializeField] private PlayerData _playerData;
-        public Animator animator;
+        private PlayerData _playerData;
+        private Damageable damageable;
+        private Animator animator;
         
         // Dodge
         private Vector3 currentDodgeDirection;
@@ -25,7 +27,9 @@ namespace _5.Scripts
         
         private void Awake()
         {
+            _playerData = GetComponent<PlayerData>();
             animator = GetComponent<Animator>();
+            damageable = GetComponent<Damageable>();
         }
 
         public State CurrentState { get; private set; }
@@ -92,27 +96,35 @@ namespace _5.Scripts
             switch (state)
             {
                 case State.Walking:
+                    // Double check on dodging
+                    damageable.dodging = false;
                     break;
+                
                 case State.Attacking:
                     _playerMovement.RotatePlayer();
                     animator.SetTrigger("attack");
                     _playerData.Attacks--;
                     LevelController.instance.UpdateUI();
                     break;
+                
                 case State.Dodging:
                     animator.SetTrigger("dodge");
                     _playerData.Dodges--;
                     currentDodgeDirection = _playerMovement.GetDodgeDirection();
                     _dodgeMovementOccurring = true;
+                    damageable.dodging = true;
                     LevelController.instance.UpdateUI();
                     break;
+                
                 case State.Casting:
                     animator.SetTrigger("cast");
                     _playerData.MagicShots--;
                     LevelController.instance.UpdateUI();
                     break;
+                
                 case State.Dying:
                     break;
+                
                 default:
                     break;
             }
@@ -127,6 +139,7 @@ namespace _5.Scripts
         public void DodgeEnd()
         {
             ChangeState(State.Walking);
+            
         }
         
         public void CastEnd()
@@ -137,6 +150,7 @@ namespace _5.Scripts
         public void StopDodgeMovement()
         {
             _dodgeMovementOccurring = false;
+            damageable.dodging = false;
         }
     }
 }
