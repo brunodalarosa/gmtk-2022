@@ -46,11 +46,11 @@ namespace Global
             switch (rollType)
             {
                 case RollType.Life:
-                    SoundManager.Instance.PlaySFX("heal");
+                    SoundManager.Instance?.PlaySFX("heal");
                     RollHp(rollValue);
                     break;
                 case RollType.Attack:
-                    SoundManager.Instance.PlaySFX("attack-recharge");
+                    SoundManager.Instance?.PlaySFX("attack-recharge");
                     RollAttack(rollValue);
                     break;
                 case RollType.Magic:
@@ -58,11 +58,11 @@ namespace Global
                     RollMagic(rollValue);
                     break;
                 case RollType.Dodge:
-                    SoundManager.Instance.PlaySFX("dodge-recharge");
+                    SoundManager.Instance?.PlaySFX("dodge-recharge");
                     RollDodge(rollValue);
                     break;
                 case RollType.Score:
-                    SoundManager.Instance.PlaySFX("player-upgrade");
+                    SoundManager.Instance?.PlaySFX("player-upgrade");
                     RollScore(rollValue);
                     break;
                 default:

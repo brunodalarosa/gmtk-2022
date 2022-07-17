@@ -10,7 +10,7 @@ namespace _5.Scripts
         private void Start()
         {
             if (SoundManager.Instance != null) 
-                SoundManager.Instance.PlayBGM("sample-bgm"); 
+                SoundManager.Instance?.PlayBGM("misforTune"); 
         }
 
         private void Update()
@@ -43,7 +43,7 @@ namespace _5.Scripts
 
         public void OpenGameOverMenu()
         {
-            SoundManager.Instance.PlaySFX("lose");
+            SoundManager.Instance?.PlaySFX("lose");
             gameOverPanel.gameObject.SetActive(true);
         }
     }

@@ -45,14 +45,149 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMs:
-  - name: sample
-    clip: {fileID: 8300000, guid: bdc0445160ea29943b4afc46cc6fd1cf, type: 3}
+  - name: misforTune
+    clip: {fileID: 8300000, guid: f4d24a80af4bac34ab277b6772355e61, type: 3}
     volume: 1
     loop: 1
     source: {fileID: 0}
   SFXs:
   - name: interface-click
     clip: {fileID: 8300000, guid: 025a9199302d79c4f8a2c93c97ee026a, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: angel-die-1
+    clip: {fileID: 8300000, guid: 5caf1e8e39f0a80468f20a9d57ada880, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: angel-die-2
+    clip: {fileID: 8300000, guid: 0b6d6c215a1ec36479012feff7809021, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: angel-die-3
+    clip: {fileID: 8300000, guid: 8acb4692ca7fa7c44901f02707b51fa8, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: attack-recharge
+    clip: {fileID: 8300000, guid: ddf83e56ef174664b97935a56fe0f6be, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: dice-1
+    clip: {fileID: 8300000, guid: d9242d1da76f3f047857cb795544e65a, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: dice-2
+    clip: {fileID: 8300000, guid: 3ebb97832ee012a438041209dc5eae21, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: dodge-recharge
+    clip: {fileID: 8300000, guid: a8dd2a6c43ea64a4cbd49ba5fc52d8ac, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: god-laugh-1
+    clip: {fileID: 8300000, guid: 4488343accfac094b96fb977682cc121, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: god-laugh-2
+    clip: {fileID: 8300000, guid: 06ff2e98a496a9348aec7ff7dc4f1241, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: god-laugh-3
+    clip: {fileID: 8300000, guid: c740f2eb06447634e9c1393915701088, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: heal
+    clip: {fileID: 8300000, guid: 497685d9716267c4e8f00e1df01059cb, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: heart-beat
+    clip: {fileID: 8300000, guid: bab10cfbd20e44844a8350d38885d7c0, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: lose
+    clip: {fileID: 8300000, guid: 36db03f845728a343b082832f3781bcc, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pierce-1
+    clip: {fileID: 8300000, guid: 6570f9f68d4fd774186751136fba79f4, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pierce-2
+    clip: {fileID: 8300000, guid: a4c1a3c159160bd41bac8174c859852a, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pierce-3
+    clip: {fileID: 8300000, guid: 2305305bdc0fd5f469ec456dbc956c7c, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player-die-1
+    clip: {fileID: 8300000, guid: 3dd168d8354f210468e1694b51a63f4e, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player-die-2
+    clip: {fileID: 8300000, guid: 57db13487d4df2b42940635bcbb899fa, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player-low-health
+    clip: {fileID: 8300000, guid: c73c3c2d2d0049242922f4a17262671b, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player-upgrade
+    clip: {fileID: 8300000, guid: af7e19c67eaa0a84f80cb6315117f491, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: swosh-01
+    clip: {fileID: 8300000, guid: e8de3ee28722f8241b993ce9cb9c6070, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: swosh-02
+    clip: {fileID: 8300000, guid: 99e4c7f9e54625243a7e1e0ac46c2e67, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: swosh-03
+    clip: {fileID: 8300000, guid: dddef1c1b0f28304d895eb6165aae66b, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: walk-1
+    clip: {fileID: 8300000, guid: 9348779f29c304043934ee5d1aa2e4a9, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: walk-2
+    clip: {fileID: 8300000, guid: 9c2d133ac3244aa46b3d495a2f5b7977, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: wing-flap-1
+    clip: {fileID: 8300000, guid: ed4c2fc26c2eef4468459c45ab95a673, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: wing-flap-2
+    clip: {fileID: 8300000, guid: 77b30135cd2a3bb4486b9cea5a59e493, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}
