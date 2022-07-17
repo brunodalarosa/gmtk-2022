@@ -5,6 +5,8 @@ using _5.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using DG.Tweening;
 
 namespace Global
 {
@@ -36,6 +38,14 @@ namespace Global
         
         [field: Header("Player")]
         [field: SerializeField] public PlayerData PlayerData { get; private set; }
+
+        [field: Header("Filters")]
+        public Volume filterBase;
+        public Volume filterGod;
+        public Volume filterPause;
+        [field: SerializeField] private float PauseTimeScale { get; set; }
+        [field: SerializeField] private bool paused { get; set; }
+
 
         private void Awake()
         {
@@ -116,18 +126,26 @@ namespace Global
 
         private void EnterDiceMenu()
         {
+            paused = true;
             RollDiceMenuOverlay.Init(PlayerData);
-            
+            Time.timeScale = PauseTimeScale;
+            DOTween.defaultTimeScaleIndependent = true;
+            DOTween.To(() => Time.timeScale, x => Time.timeScale= x, PauseTimeScale, .33f);
+            DOTween.To(() => filterPause.weight, x => filterPause.weight = x, 1, .33f);
             DebugButtonParent.gameObject.SetActive(false);
             GeneralUi.transform.SetParent(RollDiceMenuOverlay.Content.transform, true);
         }
 
         public void LeaveDiceMenu()
         {
+            paused = false;
             GeneralUi.transform.SetParent(Canvas.transform, true);
             DebugButtonParent.gameObject.SetActive(true);
-            
+            DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1, .33f);
+            DOTween.To(() => filterPause.weight, x => filterPause.weight = x, 0, .33f);
+
             UpdateDiceMenuButtonState(PlayerData);
+            Time.timeScale = 1;
         }
 
         public Dice ApplyDiceRoll(RollType rollType, DiceType diceType)
@@ -175,5 +193,19 @@ namespace Global
         {
             GeneralUi.Refresh(PlayerData);
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (paused)
+                    LeaveDiceMenu();
+                else
+                    EnterDiceMenu();
+
+            }
+
+        }
+
     }
 }

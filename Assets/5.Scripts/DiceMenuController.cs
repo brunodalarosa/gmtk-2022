@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class DiceMenuController : MonoBehaviour
 {
     [field: SerializeField] public GameObject Content { get; set; }
-    [field: SerializeField] private DiceBagView DiceBagView { get; set; }
     [field: SerializeField] private Button RollAttackButton { get; set; }
     [field: SerializeField] private Button RollMagicButton { get; set; }
     [field: SerializeField] private Button RollDodgeButton { get; set; }
@@ -34,7 +33,6 @@ public class DiceMenuController : MonoBehaviour
     {
         Content.gameObject.SetActive(true);
         DiceResultPanel.gameObject.SetActive(false);
-        DiceBagView.Init(playerData.DiceBag);
         UpdateButtons();
     }
 
@@ -53,14 +51,12 @@ public class DiceMenuController : MonoBehaviour
         {
             DiceRollResult.text = usedDice.RolledValue.ToString();
             DiceResultPanel.gameObject.SetActive(true);
-            DiceBagView.RemoveDice(usedDice.Type);
             UpdateButtons();
         }
     }
     
     private void ExitDiceMenu()
     {
-        DiceBagView.Clear();
         DiceResultPanel.gameObject.SetActive(false);
         Content.gameObject.SetActive(false);
         LevelController.instance.LeaveDiceMenu();

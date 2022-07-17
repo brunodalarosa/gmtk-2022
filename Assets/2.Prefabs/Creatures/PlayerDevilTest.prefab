@@ -1155,8 +1155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 2593882292834129476}
-  _playerData: {fileID: 0}
-  animator: {fileID: 0}
+  _playerData: {fileID: 1423637650412870893}
+  animator: {fileID: 6297539734381757164}
 --- !u!114 &1423637650412870893
 MonoBehaviour:
   m_ObjectHideFlags: 0
