@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuPanel: {fileID: 0}
+  gameOverPanel: {fileID: 0}
 --- !u!114 &8623750164805455476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Rngesus>k__BackingField: {fileID: 0}
+  <IntervalBetweenGodDiceRollTries>k__BackingField: 5
   <EnemiesParent>k__BackingField: {fileID: 0}
   <CurrentLevel>k__BackingField: 0
   <BeforeEnterLevelCooldownSeconds>k__BackingField: 2
@@ -258,13 +260,13 @@ MonoBehaviour:
   <DebugGetAd6Button>k__BackingField: {fileID: 0}
   <GeneralUi>k__BackingField: {fileID: 0}
   <DiceQtdLabel>k__BackingField: {fileID: 0}
-  <RollDiceMenuButton>k__BackingField: {fileID: 0}
   <RollDiceMenuOverlay>k__BackingField: {fileID: 0}
   <PlayerData>k__BackingField: {fileID: 0}
   filterBase: {fileID: 1600634372918293911}
   filterGod: {fileID: 5390647420022324180}
   filterPause: {fileID: 2923185713591921990}
   <PauseTimeScale>k__BackingField: 0.05
+  <paused>k__BackingField: 0
 --- !u!1 &8902346526990579280
 GameObject:
   m_ObjectHideFlags: 0
