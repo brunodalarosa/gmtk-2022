@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _5.Scripts;
 using Global;
 using TMPro;
 using UnityEngine;
@@ -89,6 +90,7 @@ public class DiceMenuController : MonoBehaviour
 
         if (RolledValue == 6)
         {
+            SoundManager.Instance?.PlaySFX("oooh");
             VfxBest.Play();
             DiceRollResult.color = ColorBest;
         }

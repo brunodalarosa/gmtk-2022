@@ -55,7 +55,7 @@ namespace Global
                     RollAttack(rollValue);
                     break;
                 case RollType.Magic:
-                    SoundManager.Instance?.PlaySFX("magic-refil");
+                    SoundManager.Instance?.PlaySFX("magic-refill");
                     RollMagic(rollValue);
                     break;
                 case RollType.Dodge:

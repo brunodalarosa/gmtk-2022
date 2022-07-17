@@ -24,7 +24,7 @@ namespace Global
         [field: Header("Level Control")]
         [field: SerializeField] private int CurrentLevel { get; set; } = 0;
         [field:SerializeField] private float BeforeEnterLevelCooldownSeconds { get; set; } = 2;
-        [field: SerializeField] private float BetweenLevelsCooldownSeconds { get; set; } = 10;
+        [field: SerializeField] private float BetweenLevelsCooldownSeconds { get; set; } = 5;
         
         private Coroutine OnLevelCooldownCoroutine { get; set; }
 

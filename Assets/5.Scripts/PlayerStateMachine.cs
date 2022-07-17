@@ -48,7 +48,9 @@ namespace _5.Scripts
                         {
                            ChangeState(State.Attacking);
                            return;
-                        }
+                        } 
+                        SoundManager.Instance?.PlaySFX("error");
+                        return;
                     }
                     
                     if (Input.GetMouseButton(1))
@@ -58,6 +60,8 @@ namespace _5.Scripts
                             ChangeState(State.Casting);
                             return;
                         }
+                        SoundManager.Instance?.PlaySFX("error");
+                        return;
                     }
 
                     if (Input.GetKey(KeyCode.Space))
@@ -67,7 +71,8 @@ namespace _5.Scripts
                             ChangeState(State.Dodging);
                             return;
                         }
-
+                        SoundManager.Instance?.PlaySFX("error");
+                        return;
                     }
 
                     _playerMovement.HandleMovement();
@@ -113,7 +118,7 @@ namespace _5.Scripts
                 
                 case State.Dodging:
                     animator.SetTrigger("dodge");
-                    SoundManager.Instance?.PlaySFX("swosh-03");
+                    SoundManager.Instance?.PlaySFX("dashing");
                     _playerData.Dodges--;
                     currentDodgeDirection = _playerMovement.GetDodgeDirection();
                     _dodgeMovementOccurring = true;
@@ -146,7 +151,7 @@ namespace _5.Scripts
         public void DodgeEnd()
         {
             ChangeState(State.Walking);
-            
+            SoundManager.Instance?.PlaySFX("landing");
         }
         
         public void CastEnd()

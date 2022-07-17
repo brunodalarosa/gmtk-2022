@@ -50,6 +50,11 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
+  - name: bgm-menu
+    clip: {fileID: 8300000, guid: 21fadba4b0fa11949ab53ded0e3b5817, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
   SFXs:
   - name: interface-click
     clip: {fileID: 8300000, guid: 025a9199302d79c4f8a2c93c97ee026a, type: 3}
@@ -166,8 +171,8 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: swosh-03
-    clip: {fileID: 8300000, guid: dddef1c1b0f28304d895eb6165aae66b, type: 3}
+  - name: dashing
+    clip: {fileID: 8300000, guid: 2cea700fa7f72154cafde9fe8a0c6276, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}
@@ -213,6 +218,26 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: magic-refill
     clip: {fileID: 8300000, guid: 9cfd6ba3ce02af244a61627ba8e5d4d7, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: error
+    clip: {fileID: 8300000, guid: a3b561a5ff36ce04f80e90612c13ad8c, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: oooh
+    clip: {fileID: 8300000, guid: b6372e33855b92440b07c99d8dd5100c, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: metal-impact
+    clip: {fileID: 8300000, guid: f55546a34e0eece44b14f16c55591dae, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: landing
+    clip: {fileID: 8300000, guid: 4bcaee3529e0d644a9c14b628f323f8a, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}

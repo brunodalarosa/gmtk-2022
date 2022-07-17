@@ -68,6 +68,7 @@ namespace _5.Scripts
                 case State.Attacking:
                     _animator.SetFloat("moveRatio", 0);
                     _animator.SetTrigger("attack");
+                    SoundManager.Instance?.PlaySFX("metal-impact");
                     break;
                 case State.Dead:
                     break;

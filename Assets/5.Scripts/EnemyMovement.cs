@@ -7,6 +7,7 @@ namespace _5.Scripts
     {
         [SerializeField] private CharacterController _characterController;
         public Transform _playerTransform;
+        private Vector3 _enemyVelocity;
         
         private void Start()
         {
@@ -20,6 +21,10 @@ namespace _5.Scripts
             var myPosition = transform.position;
             var playerDirection = (playerPosition - myPosition).normalized;
             _characterController.Move(playerDirection * (moveSpeed * Time.deltaTime));
+            
+            // Gravity
+            _enemyVelocity.y += -9.8f * Time.deltaTime;
+            _characterController.Move(_enemyVelocity * Time.deltaTime);
         }
     }
 }
