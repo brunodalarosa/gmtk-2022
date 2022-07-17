@@ -191,3 +191,28 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: wing-flap-2
+    clip: {fileID: 8300000, guid: 77b30135cd2a3bb4486b9cea5a59e493, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player-hurt-1
+    clip: {fileID: 8300000, guid: 4d7fba83d90d47b44b731ad64829420a, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player-hurt-2
+    clip: {fileID: 8300000, guid: 4089e26ab5f79c2498ade2fdd934c9bb, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: magic-missil
+    clip: {fileID: 8300000, guid: 6de2dbc176abde34792843a08d41597f, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: magic-refill
+    clip: {fileID: 8300000, guid: 9cfd6ba3ce02af244a61627ba8e5d4d7, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}

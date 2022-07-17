@@ -24,7 +24,7 @@ namespace _5.Scripts
             lastSpawnUsedIndex = selectedSpawnIndex;
             
             var enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-            LevelController.instance.AddNewEnemy(enemy);
+            LevelController.Instance.AddNewEnemy(enemy);
         }
         
     }

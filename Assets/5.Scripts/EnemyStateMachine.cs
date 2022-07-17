@@ -55,7 +55,7 @@ namespace _5.Scripts
         private IEnumerator DestroyEnemyCoroutine()
         {
             yield return new WaitForSeconds(1);
-            LevelController.instance.RemoveAndDestroyEnemy(_enemyData);
+            LevelController.Instance.RemoveAndDestroyEnemy(_enemyData);
         }
 
         private void ChangeState(State state)
