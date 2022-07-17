@@ -103,6 +103,11 @@ namespace Global
         {
             Score += enemyScore;
         }
+
+        public void UpdateHp(int value)
+        {
+            Hp += value;
+        }
     }
     
     public enum RollType

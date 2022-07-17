@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _5.Scripts.Gameplay
+namespace Global
 {
     public class Damageable : MonoBehaviour
     {
@@ -59,6 +59,9 @@ namespace _5.Scripts.Gameplay
 
             if (hpCurrent <= 0)
                 Death();
+
+            if (CompareTag("Player"))
+                LevelController.instance.UpdatePlayerHp(value);
 
         }
 

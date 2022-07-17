@@ -46,6 +46,12 @@ namespace Global
             RollDiceMenuButton.onClick.AddListener(EnterDiceMenu);
         }
 
+        public void UpdatePlayerHp(int value)
+        {
+            PlayerData.UpdateHp(value);
+            UpdateUI();
+        }
+
         private void Start()
         {
             GeneralUi.Refresh(PlayerData);
@@ -98,9 +104,15 @@ namespace Global
             yield return new WaitForSeconds(BeforeEnterLevelCooldownSeconds);
             Debug.Log($"Entrou no level cooldown de {BetweenLevelsCooldownSeconds} segundos");
             //todo spawnar ferreiro?
-            yield return new WaitForSeconds(BetweenLevelsCooldownSeconds);
+            GeneralUi.SetTimer(BetweenLevelsCooldownSeconds);
+            yield return new WaitForSeconds(BetweenLevelsCooldownSeconds *.66f);
+            GeneralUi.UpdateTimerStatus(UiAnimationType.qtyLow);
+            yield return new WaitForSeconds(BetweenLevelsCooldownSeconds *.33f);
+            GeneralUi.EndTimer();
             StartNewLevel();
+
         }
+
 
         private void EnterDiceMenu()
         {
