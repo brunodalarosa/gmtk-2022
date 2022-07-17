@@ -75,8 +75,8 @@ namespace Global
         {
             Hp += value;
 
-            if (Hp <= 0) Hp = 1;
-            
+            Hp = Mathf.Clamp(Hp, 1.0f, 100.0f);
+
             _damageable.ApplyNewHpValue((int)Hp);
         }
         
