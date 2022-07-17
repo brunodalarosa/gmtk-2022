@@ -265,6 +265,13 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   <GodDiceTransform>k__BackingField: {fileID: 2715641003390444162}
+  <GodDiceColors>k__BackingField:
+  - {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
+  - {r: 1, g: 0.6862745, b: 0.39215687, a: 1}
+  - {r: 1, g: 1, b: 0.39215687, a: 1}
+  - {r: 0.39215687, g: 1, b: 0.39215687, a: 1}
+  - {r: 0.39215687, g: 1, b: 0.6862745, a: 1}
+  - {r: 0.39215687, g: 0.6862745, b: 1, a: 1}
 --- !u!1 &160890513196615275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,7 +1947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1175075177291494202
 RectTransform:
   m_ObjectHideFlags: 0
