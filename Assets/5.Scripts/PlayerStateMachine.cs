@@ -105,7 +105,7 @@ namespace _5.Scripts
                     SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "swosh-01" : "swosh-02");
                     animator.SetTrigger("attack");
                     _playerData.Attacks--;
-                    LevelController.instance.UpdateUI();
+                    LevelController.Instance.UpdateUI();
                     break;
                 
                 case State.Dodging:
@@ -115,14 +115,14 @@ namespace _5.Scripts
                     currentDodgeDirection = _playerMovement.GetDodgeDirection();
                     _dodgeMovementOccurring = true;
                     damageable.dodging = true;
-                    LevelController.instance.UpdateUI();
+                    LevelController.Instance.UpdateUI();
                     break;
                 
                 case State.Casting:
                     animator.SetTrigger("cast");
                     SoundManager.Instance?.PlaySFX("magic-missil");
                     _playerData.MagicShots--;
-                    LevelController.instance.UpdateUI();
+                    LevelController.Instance.UpdateUI();
                     break;
                 
                 case State.Dying:

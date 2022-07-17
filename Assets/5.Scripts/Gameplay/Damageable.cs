@@ -71,7 +71,7 @@ namespace Global
                 Death();
 
             if (CompareTag("Player"))
-                LevelController.instance.UpdatePlayerHp(value);
+                LevelController.Instance.UpdatePlayerHp(value);
 
         }
 

@@ -12,13 +12,14 @@ namespace Global
 {
     public class LevelController : MonoBehaviour
     {
-        public static LevelController instance;
+        public static LevelController Instance;
         
         [field:Header("God Stuff")]
         [field:SerializeField] private Rngesus Rngesus { get; set; }
+
+        [field: SerializeField] private float IntervalBetweenGodDiceRollTries { get; set; } = 5f;
         [field:SerializeField] public GameObject EnemiesParent { get; set; }
         private List<EnemyData> Enemies { get; set; }
-
 
         [field: Header("Level Control")]
         [field: SerializeField] private int CurrentLevel { get; set; } = 0;
@@ -44,11 +45,12 @@ namespace Global
         public Volume filterPause;
         [field: SerializeField] private float PauseTimeScale { get; set; }
         [field: SerializeField] private bool paused { get; set; }
-
+        
+        private Coroutine GodDiceRollCoroutine { get; set; }
 
         private void Awake()
         {
-            instance = this;
+            Instance = this;
             Enemies = new List<EnemyData>();
             
             DebugGetAd6Button.onClick.AddListener(DebugGiveD6ToPlayer);
@@ -70,6 +72,13 @@ namespace Global
         public void StartNewLevel()
         {
             Rngesus.OnLevelStarted();
+            GodDiceRollCoroutine = StartCoroutine(GodDiceRolling());
+        }
+
+        private IEnumerator GodDiceRolling()
+        {
+            yield return new WaitForSeconds(IntervalBetweenGodDiceRollTries);
+            Rngesus.GodTryRoll();
         }
 
         public void AddNewEnemy(EnemyData enemy)
@@ -101,6 +110,8 @@ namespace Global
         
         private void FinishLevel()
         {
+            StopCoroutine(GodDiceRollCoroutine);
+            
             CurrentLevel++;
             Rngesus.OnLevelFinished();
 
@@ -122,9 +133,7 @@ namespace Global
             
             GeneralUi.EndTimer();
             StartNewLevel();
-
         }
-
 
         private void EnterDiceMenu()
         {
@@ -153,6 +162,7 @@ namespace Global
 
         public void ApplyDiceRoll(RollType rollType, int value)
         {
+            Rngesus.OnPlayerRolledDice(value);
             PlayerData.ApplyDiceRoll(rollType, value);
             GeneralUi.Refresh(PlayerData);
         }
@@ -181,11 +191,6 @@ namespace Global
             UpdateDiceMenuButtonState(PlayerData);
         }
 
-        private void OnDestroy()
-        {
-            StopAllCoroutines();
-        }
-
         public void UpdateUI()
         {
             GeneralUi.Refresh(PlayerData);
@@ -198,8 +203,22 @@ namespace Global
                 EnterDiceMenu();
 
             }
-
+        }
+        
+        public float AnimateGodDiceRoll(int rolledValue)
+        {
+            return 1.0f; //todo FARINHA aqui você chama todas as animações de deus rolando o dado com o valor que veio como parametro e depois retorna um float com os segundos que essas animações vão demorar! :D
         }
 
+        public void PlayerCurseDiceRoll(RollType rollType, int value)
+        {
+            PlayerData.ApplyDiceRoll(rollType, value * -1);
+            GeneralUi.Refresh(PlayerData);
+        }
+
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
     }
 }

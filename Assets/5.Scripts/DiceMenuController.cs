@@ -63,12 +63,12 @@ public class DiceMenuController : MonoBehaviour
         Content.gameObject.SetActive(true);
         DiceResultPanel.gameObject.SetActive(false);
 
-        var dice = LevelController.instance.GetDiceOfType(DiceType.D6);
+        var dice = LevelController.Instance.GetDiceOfType(DiceType.D6);
 
         if (dice == null)
         {
             Debug.Log("ISSO NÃO DEVERIA ACONTECER NUNCA!");
-            LevelController.instance.LeaveDiceMenu();
+            LevelController.Instance.LeaveDiceMenu();
             return;
         }
 
@@ -119,7 +119,7 @@ public class DiceMenuController : MonoBehaviour
     private void ApplyRolledDice(RollType rollType, int value)
     {
         AfterChoiceSetAnimatorStates(rollType);
-        LevelController.instance.ApplyDiceRoll(rollType, value);
+        LevelController.Instance.ApplyDiceRoll(rollType, value);
         DiceResultPanel.GetComponent<RectTransform>().DOScale(0, .25f).SetEase(ResultCurve);
         StopAllCoroutines();
         StartCoroutine(ExitDiceMenu());
@@ -131,7 +131,7 @@ public class DiceMenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(.25f);
         DiceResultPanel.gameObject.SetActive(false);
         Content.gameObject.SetActive(false);
-        LevelController.instance.LeaveDiceMenu();
+        LevelController.Instance.LeaveDiceMenu();
     }
     
     private void ToggleButtonsEnabled(bool enableButton)
