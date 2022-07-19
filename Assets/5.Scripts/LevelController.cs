@@ -61,7 +61,7 @@ namespace Global
         public void UpdatePlayerHp(int value)
         {
             PlayerData.UpdateHp(value);
-            UpdateUI();
+            UpdateUI(UiElementType.hp, value);
 
             if (PlayerData.Hp <= 0)
             {
@@ -73,8 +73,8 @@ namespace Global
         {
             DebugButtonParent.gameObject.SetActive(false);
             
-            GeneralUi.Refresh(PlayerData);
-            UpdateDiceMenuButtonState(PlayerData);
+            GeneralUi.Refresh(PlayerData, UiElementType.none, 0);
+            UpdateDiceMenuButtonState();
             StartNewLevel();
         }
 
@@ -104,7 +104,7 @@ namespace Global
             if (Enemies.Remove(enemy))
             {
                 PlayerData.AddScore(enemy.Score);
-                GeneralUi.Refresh(PlayerData);
+                GeneralUi.Refresh(PlayerData, UiElementType.score,enemy.Score);
                 
                 Destroy(enemy.gameObject);
                 CheckEnemies();
@@ -158,6 +158,9 @@ namespace Global
             // DebugButtonParent.gameObject.SetActive(false);
             GeneralUi.transform.SetParent(RollDiceMenuOverlay.Content.transform, true);
             GeneralUi.RollDice();
+
+            UpdateDiceMenuButtonState();
+            GeneralUi.Refresh(PlayerData, UiElementType.counterD6, -1);
         }
 
         public void LeaveDiceMenu()
@@ -168,7 +171,7 @@ namespace Global
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1, .33f);
             DOTween.To(() => filterPause.weight, x => filterPause.weight = x, 0, .33f);
 
-            UpdateDiceMenuButtonState(PlayerData);
+
             Time.timeScale = 1;
         }
 
@@ -176,7 +179,29 @@ namespace Global
         {
             Rngesus.OnPlayerRolledDice(rolledValue);
             PlayerData.ApplyDiceRoll(rollType, value);
-            GeneralUi.Refresh(PlayerData);
+
+            UiElementType element = UiElementType.score;
+
+            switch(rollType)
+            {
+                case RollType.Life:
+                    element = UiElementType.hp;
+                    break;
+                case RollType.Score:
+                    element = UiElementType.score;
+                    break;
+                case RollType.Attack:
+                    element = UiElementType.counterAttack;
+                    break;
+                case RollType.Magic:
+                    element = UiElementType.counterSpells;
+                    break;
+                case RollType.Dodge:
+                    element = UiElementType.counterDodge;
+                    break;
+            }
+
+            GeneralUi.Refresh(PlayerData, element, value);
         }
 
         public Dice GetDiceOfType(DiceType diceType)
@@ -192,27 +217,38 @@ namespace Global
             }
         }
 
-        public void UpdateDiceMenuButtonState(PlayerData playerData)
+        public void UpdateDiceMenuButtonState()
         {
-            DiceQtdLabel.text = playerData.DiceQtd.ToString();
+            DiceQtdLabel.text = PlayerData.DiceQtd.ToString();
         }
         
         public void AddD6ToPlayer()
         {
             PlayerData.DiceBag.AddNewDice(DiceType.D6);
-            UpdateDiceMenuButtonState(PlayerData);
+            UpdateDiceMenuButtonState();
+            GeneralUi.Refresh(PlayerData, UiElementType.counterD6, 1);
         }
 
-        public void UpdateUI()
+        public void UpdateUI(UiElementType type, float value)
         {
-            GeneralUi.Refresh(PlayerData);
+            GeneralUi.Refresh(PlayerData, type, value);
+        }
+        public void UiCounterNoUse(UiElementType type)
+        {
+            GeneralUi.AnimateElement(type, UiAnimationType.noUse);
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab) && PlayerData.DiceQtd > 0 && !paused)
+            if (Input.GetKeyDown(KeyCode.Tab) && !paused)
             {
-                EnterDiceMenu();
+                if(PlayerData.DiceQtd > 0)
+                    EnterDiceMenu();
+                else
+                {
+                    SoundManager.Instance?.PlaySFX("error");
+                    UiCounterNoUse(UiElementType.counterD6);
+                }
 
             }
         }
@@ -253,7 +289,29 @@ namespace Global
         public void PlayerCurseDiceRoll(RollType rollType, int value)
         {
             PlayerData.ApplyDiceRoll(rollType, value * -1);
-            GeneralUi.Refresh(PlayerData);
+
+            UiElementType element = UiElementType.score;
+
+            switch (rollType)
+            {
+                case RollType.Life:
+                    element = UiElementType.hp;
+                    break;
+                case RollType.Score:
+                    element = UiElementType.score;
+                    break;
+                case RollType.Attack:
+                    element = UiElementType.counterAttack;
+                    break;
+                case RollType.Magic:
+                    element = UiElementType.counterSpells;
+                    break;
+                case RollType.Dodge:
+                    element = UiElementType.counterDodge;
+                    break;
+            }
+
+            GeneralUi.Refresh(PlayerData, element, value);
         }
 
         private void OnDestroy()

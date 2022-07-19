@@ -37,12 +37,12 @@ namespace _5.Scripts
 
         public State CurrentState { get; private set; }
 
-        private void FixedUpdate()
+        private void Update()
         {
             switch (CurrentState)
             {
                 case State.Walking:
-                    if (Input.GetMouseButton(0))
+                    if (Input.GetMouseButtonDown(0))
                     {
                         if (_playerData.Attacks > 0)
                         {
@@ -50,10 +50,12 @@ namespace _5.Scripts
                            return;
                         } 
                         SoundManager.Instance?.PlaySFX("error");
+                        LevelController.Instance.UiCounterNoUse(UiElementType.counterAttack);
+
                         return;
                     }
                     
-                    if (Input.GetMouseButton(1))
+                    if (Input.GetMouseButtonDown(1))
                     {
                         if (_playerData.MagicShots > 0)
                         {
@@ -61,10 +63,11 @@ namespace _5.Scripts
                             return;
                         }
                         SoundManager.Instance?.PlaySFX("error");
+                        LevelController.Instance.UiCounterNoUse(UiElementType.counterSpells);
                         return;
                     }
 
-                    if (Input.GetKey(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.Space))
                     {
                         if (_playerData.Dodges > 0)
                         {
@@ -72,6 +75,7 @@ namespace _5.Scripts
                             return;
                         }
                         SoundManager.Instance?.PlaySFX("error");
+                        LevelController.Instance.UiCounterNoUse(UiElementType.counterDodge);
                         return;
                     }
 
@@ -113,7 +117,7 @@ namespace _5.Scripts
                     SoundManager.Instance?.PlaySFX(Random.Range(0, 2) == 0 ? "swosh-01" : "swosh-02");
                     animator.SetTrigger("attack");
                     _playerData.Attacks--;
-                    LevelController.Instance.UpdateUI();
+                    LevelController.Instance.UpdateUI(UiElementType.counterAttack, -1);
                     break;
                 
                 case State.Dodging:
@@ -123,7 +127,7 @@ namespace _5.Scripts
                     currentDodgeDirection = _playerMovement.GetDodgeDirection();
                     _dodgeMovementOccurring = true;
                     damageable.dodging = true;
-                    LevelController.Instance.UpdateUI();
+                    LevelController.Instance.UpdateUI(UiElementType.counterDodge, -1);
                     break;
                 
                 case State.Casting:
@@ -131,7 +135,7 @@ namespace _5.Scripts
                     animator.SetTrigger("cast");
                     SoundManager.Instance?.PlaySFX("magic-missil");
                     _playerData.MagicShots--;
-                    LevelController.Instance.UpdateUI();
+                    LevelController.Instance.UpdateUI(UiElementType.counterSpells, -1);
                     break;
                 
                 case State.Dying:

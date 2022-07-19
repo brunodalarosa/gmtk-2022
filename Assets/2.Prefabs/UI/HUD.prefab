@@ -228,6 +228,8 @@ MonoBehaviour:
   <AttackValue>k__BackingField: {fileID: 4563241643980216168}
   <MagicValue>k__BackingField: {fileID: 6046954144069747279}
   <DodgeValue>k__BackingField: {fileID: 5161265707943393596}
+  <DiceValue>k__BackingField:
+  - {fileID: 1175075176845106513}
   <AnimatorHp>k__BackingField: {fileID: 5712600093498651959}
   <AnimatorScore>k__BackingField: {fileID: 2651592970530963835}
   <AnimatorTimer>k__BackingField: {fileID: 4273026127355137025}

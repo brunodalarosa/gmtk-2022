@@ -8,7 +8,7 @@ using _5.Scripts;
 namespace Global
 {
     public enum UiAnimationType {raise, spend, noUse, qtyNormal, qtyLow, qtyZero}
-    public enum UiElementType {hp,score, timer, counterAttack, counterSpells, counterDodge, counterD6}
+    public enum UiElementType {none, hp,score, timer, counterAttack, counterSpells, counterDodge, counterD6}
 
     public class GeneralUiController : MonoBehaviour
     {
@@ -18,6 +18,7 @@ namespace Global
         [field: SerializeField] private TextMeshProUGUI AttackValue { get; set; }
         [field: SerializeField] private TextMeshProUGUI MagicValue { get; set; }
         [field: SerializeField] private TextMeshProUGUI DodgeValue { get; set; }
+        [field: SerializeField] private TextMeshProUGUI[] DiceValue { get; set; }
         [field: SerializeField] private Animator AnimatorHp { get; set; }
         [field: SerializeField] private Animator AnimatorScore { get; set; }
         [field: SerializeField] private Animator AnimatorTimer { get; set; }
@@ -43,19 +44,65 @@ namespace Global
             
         }
 
-        public void Refresh(PlayerData playerData)
+        public void Refresh(PlayerData playerData, UiElementType elementType, float value)
         {
             HpLabelValue.text = ((int)playerData.Hp).ToString();
             ScoreLabelValue.text = playerData.Score.ToString();
             AttackValue.text = playerData.Attacks.ToString();
             MagicValue.text = playerData.MagicShots.ToString();
             DodgeValue.text = playerData.Dodges.ToString();
+            DiceValue[0].text = playerData.DiceQtd.ToString();
+            
             HpFillImage.DOFillAmount((float)playerData.Hp / (float)playerData.MaxHp, .25f);
 
             if (playerData.DiceQtd > 0)
                 AnimatorDiceRoller.SetTrigger("normal");
             else
                 AnimatorDiceRoller.SetTrigger("disable");
+
+            if (elementType != UiElementType.none)
+            {
+                if (value >0)
+                    AnimateElement(elementType, UiAnimationType.raise);
+                else if (value <0)
+                    AnimateElement(elementType, UiAnimationType.spend);
+            }
+
+            int threshold = 0;
+            switch (elementType)
+            {
+                default:
+                    break;
+                case UiElementType.hp:
+                    threshold = (int)(playerData.MaxHp * .33f);
+                    UpdateCounterStatus(elementType, threshold, (int)playerData.Hp);
+                    break;
+                case UiElementType.counterAttack:
+                    threshold = 5;
+                    UpdateCounterStatus(elementType, threshold, playerData.Attacks);
+                    break;
+                case UiElementType.counterSpells:
+                    threshold = 5;
+                    UpdateCounterStatus(elementType, threshold, playerData.MagicShots);
+                    break;
+                case UiElementType.counterDodge:
+                    threshold = 5;
+                    UpdateCounterStatus(elementType, threshold, playerData.Dodges);
+                    break;
+                case UiElementType.counterD6:
+                    threshold = 3;
+                    UpdateCounterStatus(elementType, threshold, playerData.DiceQtd);
+                    break;
+            }
+        }
+        private void UpdateCounterStatus(UiElementType elementType, int threshold, int value)
+        {
+            if (value == 0)
+                AnimateElement(elementType, UiAnimationType.qtyZero);
+            else if (value <= threshold)
+                AnimateElement(elementType, UiAnimationType.qtyLow);
+            else
+                AnimateElement(elementType, UiAnimationType.qtyNormal);
         }
 
         public void RollDice()
@@ -149,7 +196,7 @@ namespace Global
                     anim.SetTrigger("spend");
                     break;
                 case UiAnimationType.noUse:
-                    anim.SetTrigger("zero");
+                    anim.SetTrigger("noUse");
                     break;
                 case UiAnimationType.qtyLow:
                     anim.SetBool("low", true);
