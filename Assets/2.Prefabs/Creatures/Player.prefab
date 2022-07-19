@@ -145,6 +145,7 @@ MonoBehaviour:
   damage: 25
   randomizeId: 1
   id: 0
+  knockbackForce: 75
 --- !u!1 &3954422459242365194
 GameObject:
   m_ObjectHideFlags: 0

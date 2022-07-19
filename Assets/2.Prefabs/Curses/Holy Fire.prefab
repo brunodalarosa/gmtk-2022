@@ -28987,7 +28987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   randomizeId: 1
-  id: 0
+  id: 1
 --- !u!65 &5327062475690355298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29013,7 +29013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c645fd947a1bbea40bd465ea2c12a56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SecondsToDestroy>k__BackingField: 8
+  <SecondsToDestroy>k__BackingField: 20
 --- !u!95 &6255500068755557292
 Animator:
   serializedVersion: 4

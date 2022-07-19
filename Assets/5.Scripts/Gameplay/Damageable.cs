@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _5.Scripts;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Global
 {
@@ -13,7 +14,8 @@ namespace Global
         public float immunitySeconds;
         public List<int> attacksImmuneTo = new List<int>();
         public bool dead;
-        public bool dodging; 
+        public bool dodging;
+        private Rigidbody rb;
 
         [Header("Components")]
         public VFXManager vfxManager;
@@ -22,6 +24,7 @@ namespace Global
         {
             hpMax = hpCurrent;
             vfxManager = GetComponent<VFXManager>();
+            rb = GetComponent<Rigidbody>();
         }
         public void Damage(int value, int attackId)
         {
@@ -41,6 +44,14 @@ namespace Global
                     }
                 }
             }
+        }
+
+        public void Knockback(float knockbackForce, Vector3 knockbackSource)
+        {
+            Vector3 direction = transform.position - knockbackSource;
+            if (rb != null)
+                rb.AddForce(knockbackForce * direction);
+               // rb.DOJump(transform.position + direction, .5f,1,.3f);
         }
 
         public IEnumerator Iframes(int id)

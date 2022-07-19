@@ -24961,7 +24961,7 @@ GameObject:
   - component: {fileID: 4142886360971221398}
   - component: {fileID: 622740162}
   - component: {fileID: 7922470852759017879}
-  - component: {fileID: 230083216829108050}
+  - component: {fileID: 3015549326948683196}
   - component: {fileID: 8576684030144949624}
   m_Layer: 0
   m_Name: Angel
@@ -25055,7 +25055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808cc7a9c363c9f499bcb5410c544ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 230083216829108050}
+  _rigidBody: {fileID: 0}
   _playerTransform: {fileID: 0}
 --- !u!114 &4142886360971221398
 MonoBehaviour:
@@ -25102,26 +25102,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5928867, y: 0.9935932, z: 0.53126526}
-  m_Center: {x: -0.014255047, y: 0.51126826, z: 0.019897938}
---- !u!143 &230083216829108050
-CharacterController:
+  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!54 &3015549326948683196
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5814728871830640640}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0
-  m_Radius: 0.34
-  m_SlopeLimit: 0
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!114 &8576684030144949624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34999,3 +34997,4 @@ MonoBehaviour:
   damage: 5
   randomizeId: 1
   id: 0
+  knockbackForce: 0

@@ -10,8 +10,9 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GetComponent<Animator>().SetTrigger("get");
             LevelController.Instance.AddD6ToPlayer();
-            Destroy(gameObject);
+            Destroy(gameObject,5);
         }
     }
 }

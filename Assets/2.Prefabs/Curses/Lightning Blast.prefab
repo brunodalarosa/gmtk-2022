@@ -117,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1
       minScalar: 0.4
       maxCurve:
         serializedVersion: 2
@@ -662,7 +662,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 2
+    type: 10
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -14687,7 +14687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c645fd947a1bbea40bd465ea2c12a56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SecondsToDestroy>k__BackingField: 5
+  <SecondsToDestroy>k__BackingField: 10
 --- !u!1 &5585214289396767101
 GameObject:
   m_ObjectHideFlags: 0
