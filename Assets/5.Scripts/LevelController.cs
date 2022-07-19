@@ -224,6 +224,7 @@ namespace Global
         
         public void AddD6ToPlayer()
         {
+            SoundManager.Instance?.PlaySFX("walk-1");
             PlayerData.DiceBag.AddNewDice(DiceType.D6);
             UpdateDiceMenuButtonState();
             GeneralUi.Refresh(PlayerData, UiElementType.counterD6, 1);
