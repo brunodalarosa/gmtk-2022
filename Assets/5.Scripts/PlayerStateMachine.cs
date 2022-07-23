@@ -44,6 +44,8 @@ namespace _5.Scripts
                 case State.Walking:
                     if (Input.GetMouseButtonDown(0))
                     {
+                        if (LevelController.Instance.GamePaused) return;
+                        
                         if (_playerData.Attacks > 0)
                         {
                            ChangeState(State.Attacking);
@@ -57,6 +59,8 @@ namespace _5.Scripts
                     
                     if (Input.GetMouseButtonDown(1))
                     {
+                        if (LevelController.Instance.GamePaused) return;
+                        
                         if (_playerData.MagicShots > 0)
                         {
                             ChangeState(State.Casting);
@@ -69,6 +73,8 @@ namespace _5.Scripts
 
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
+                        if (LevelController.Instance.GamePaused) return;
+                        
                         if (_playerData.Dodges > 0)
                         {
                             ChangeState(State.Dodging);

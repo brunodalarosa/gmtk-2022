@@ -46,7 +46,7 @@ namespace Global
         public Volume filterGod;
         public Volume filterPause;
         [field: SerializeField] private float PauseTimeScale { get; set; }
-        [field: SerializeField] private bool paused { get; set; }
+        [field: SerializeField] public bool GamePaused { get; set; }
         
         private Coroutine GodDiceRollCoroutine { get; set; }
 
@@ -149,7 +149,7 @@ namespace Global
 
         private void EnterDiceMenu()
         {
-            paused = true;
+            GamePaused = true;
             RollDiceMenuOverlay.InitAndRoll(PlayerData);
             Time.timeScale = PauseTimeScale;
             DOTween.defaultTimeScaleIndependent = true;
@@ -165,7 +165,7 @@ namespace Global
 
         public void LeaveDiceMenu()
         {
-            paused = false;
+            GamePaused = false;
             GeneralUi.transform.SetParent(Canvas.transform, true);
             // DebugButtonParent.gameObject.SetActive(true);
             DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1, .33f);
@@ -241,7 +241,7 @@ namespace Global
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab) && !paused)
+            if (Input.GetKeyDown(KeyCode.Tab) && !GamePaused)
             {
                 if(PlayerData.DiceQtd > 0)
                     EnterDiceMenu();
