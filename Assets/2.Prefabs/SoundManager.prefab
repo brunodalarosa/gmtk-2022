@@ -241,3 +241,43 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: miracle1
+    clip: {fileID: 8300000, guid: 22a6dc50247e3c743a38e31a1fd76b38, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: miracle2
+    clip: {fileID: 8300000, guid: f19a559a9ebbf824fa34b2a07dac5066, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: miracle3
+    clip: {fileID: 8300000, guid: ff77735889a6f4b46915d1ed924d90fe, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: fire
+    clip: {fileID: 8300000, guid: 8c731855256183349af23bbb4a82b586, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: lightning_charge
+    clip: {fileID: 8300000, guid: d06d7359b8ea5384e83b3ae1b2c2e1c6, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: lightning_strike1
+    clip: {fileID: 8300000, guid: a5d6191add916c44c8368fff89017b6f, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: lightning_strike2
+    clip: {fileID: 8300000, guid: cd6bdeb701db3924b82c0fe1d28902e5, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: insectSwarm
+    clip: {fileID: 8300000, guid: 50e0ca6edccd31542963f9563f4f4b74, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}

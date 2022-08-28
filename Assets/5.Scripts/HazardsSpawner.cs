@@ -50,6 +50,24 @@ namespace _5.Scripts
         
         private void SpawnHazard(GameObject prefab)
         {
+            string clipName = "";
+
+            switch (Random.Range(0, 3))
+            {
+                case 0:
+                    clipName = "miracle1";
+                    break;
+                case 1:
+                    clipName = "miracle2";
+                    break;
+                case 2:
+                    clipName = "miracle3";
+                    break;
+
+            }
+
+            SoundManager.Instance?.PlaySFX(clipName);
+
             var selectedSpawnIndex = Random.Range(0, SpawnPoints.Count);
             
             // Help randomness

@@ -61,6 +61,7 @@ MonoBehaviour:
   damage: 20
   randomizeId: 1
   id: 0
+  knockbackForce: 0
 --- !u!1 &8336305497152776328
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,21 +252,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7869898599889177457}
     m_Modifications:
-    - target: {fileID: 1103154930710734772, guid: 770a7a257f6a9dd46923ff671f77cc3a,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932013039953505151, guid: 770a7a257f6a9dd46923ff671f77cc3a,
-        type: 3}
-      propertyPath: m_Emitting
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461838722490135845, guid: 770a7a257f6a9dd46923ff671f77cc3a,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4118088533230736834, guid: 770a7a257f6a9dd46923ff671f77cc3a,
         type: 3}
       propertyPath: m_RootOrder
@@ -325,21 +311,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PFX Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 7480153524710471860, guid: 770a7a257f6a9dd46923ff671f77cc3a,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7602805099452439396, guid: 770a7a257f6a9dd46923ff671f77cc3a,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8815066765431237963, guid: 770a7a257f6a9dd46923ff671f77cc3a,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 770a7a257f6a9dd46923ff671f77cc3a, type: 3}

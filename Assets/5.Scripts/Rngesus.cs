@@ -100,6 +100,7 @@ public class Rngesus : MonoBehaviour
 
     private void CastGodCurse(int rolledValue)
     {
+
         switch (Anger)
         {
             case <= 3:
@@ -116,6 +117,33 @@ public class Rngesus : MonoBehaviour
     
     private void CastEasyCurse(int rolledValue)
     {
+        switch (rolledValue)
+        {
+            case 1:
+                HazardsSpawner.SpawnHazards(HazardType.Dice, 3, .33f);
+                break;
+            case 2:
+                EnemySpawnInterval = 0.33f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(1));
+                break;
+            case 3:
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 1, .33f);
+                break;
+            case 4:
+                HazardsSpawner.SpawnHazards(HazardType.Lightning, 1, .33f);
+                break;
+            case 5:
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 1, .33f);
+                break;
+            case 6:
+                EnemySpawnInterval = 0.33f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(1));
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 1, .33f);
+                HazardsSpawner.SpawnHazards(HazardType.Lightning, 1, .33f);
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 1, .33f);
+                break;
+        }
+        /*
         if (rolledValue == 1) // 1
         {
             var quantity = Dice.Roll();
@@ -136,10 +164,39 @@ public class Rngesus : MonoBehaviour
             HazardsSpawner.SpawnHazards(HazardType.Lightning, 2, 0.1f);
             HazardsSpawner.SpawnHazards(HazardType.Fire, 1, 1f);
         }
+        */
     }
     
     private void CastStandardCurse(int rolledValue) 
     {
+        switch (rolledValue)
+        {
+            case 1:
+                HazardsSpawner.SpawnHazards(HazardType.Dice, 2, .33f);
+                break;
+            case 2:
+                EnemySpawnInterval = 0.33f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(2));
+                break;
+            case 3:
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 2, .33f);
+                break;
+            case 4:
+                HazardsSpawner.SpawnHazards(HazardType.Lightning, 2, .33f);
+                break;
+            case 5:
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 2, .33f);
+                break;
+            case 6:
+                EnemySpawnInterval = 0.33f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(1));
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 2, .33f);
+                HazardsSpawner.SpawnHazards(HazardType.Lightning, 2, .33f);
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 2, .33f);
+                break;
+        }
+        /*
+         
         if (rolledValue == 1) // 1
         {
             HazardsSpawner.SpawnHazards(HazardType.Dice, Dice.Roll(), 0.5f);
@@ -170,10 +227,38 @@ public class Rngesus : MonoBehaviour
             
             HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 1, 1f);
         }
+        */
     }
 
     private void CastHardCurse(int rolledValue)
     {
+        switch (rolledValue)
+        {
+            case 1:
+                HazardsSpawner.SpawnHazards(HazardType.Dice, 1, .33f);
+                break;
+            case 2:
+                EnemySpawnInterval = 0.33f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(3));
+                break;
+            case 3:
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 3, .33f);
+                break;
+            case 4:
+                HazardsSpawner.SpawnHazards(HazardType.Lightning, 3, .33f);
+                break;
+            case 5:
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 3, .33f);
+                break;
+            case 6:
+                EnemySpawnInterval = 0.33f;
+                SpawningEnemiesCoroutine = StartCoroutine(SpawnEnemiesCoroutine(3));
+                HazardsSpawner.SpawnHazards(HazardType.Fire, 3, .33f);
+                HazardsSpawner.SpawnHazards(HazardType.Lightning, 3, .33f);
+                HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 3, .33f);
+                break;
+        }
+        /*
         switch (rolledValue)
         {
             case 1:
@@ -212,6 +297,7 @@ public class Rngesus : MonoBehaviour
                 HazardsSpawner.SpawnHazards(HazardType.Gafanhoto, 2, 0.5f);
                 break;
         }
+        */
     }
 
     public void OnLevelStarted()

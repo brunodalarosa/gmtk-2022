@@ -602,7 +602,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 100
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4920,6 +4920,7 @@ MonoBehaviour:
   damage: 30
   randomizeId: 1
   id: 0
+  knockbackForce: 0
 --- !u!135 &8699515425169691568
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10350,7 +10351,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 200
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -14631,6 +14632,7 @@ GameObject:
   - component: {fileID: 5327062475690355296}
   - component: {fileID: 9171490158562144021}
   - component: {fileID: 6512378129307361634}
+  - component: {fileID: 8227156070274021572}
   m_Layer: 0
   m_Name: Lightning Blast
   m_TagString: Untagged
@@ -14688,6 +14690,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SecondsToDestroy>k__BackingField: 10
+--- !u!114 &8227156070274021572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5327062475690355299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f7f03cfd2c99e47bcf34ca1ec6e375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5585214289396767101
 GameObject:
   m_ObjectHideFlags: 0
@@ -15289,7 +15303,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 100
+    maxNumParticles: 50
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -20101,7 +20115,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 100
+    maxNumParticles: 40
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
