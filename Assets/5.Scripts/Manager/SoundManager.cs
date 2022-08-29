@@ -1,10 +1,7 @@
 using System;
-using System.Linq;
 using Data;
 using Manager.Interface;
 using UnityEngine;
-
-// ReSharper disable InconsistentNaming
 
 namespace Manager
 {
@@ -14,66 +11,58 @@ namespace Manager
         public Sound[] SFXs;
         public float BGMVolume { get; private set; } = 100f;
         public float SFXVolume { get; private set; } = 100f;
+        
+        private AudioSource BGMAudioSource { get; set; }
+        private AudioSource SfxAudioSource { get; set; }
 
         private void Awake()
         {
-            //Todo: refatorar isso aqui para não ter um audioSource para audio do jogo
-            foreach (var sound in BGMs.Concat(SFXs))
-            {
-                sound.source = gameObject.AddComponent<AudioSource>();
-                sound.source.clip = sound.clip;
-                sound.source.volume = sound.volume;
-                sound.source.loop = sound.loop;
-            }
+            BGMAudioSource = gameObject.AddComponent<AudioSource>();
+            SfxAudioSource = gameObject.AddComponent<AudioSource>();
         }
 
         public void PlaySFX(string soundName)
         {
             var sound = Array.Find(SFXs, sound => sound.name == soundName);
+
             if (sound == null)
             {
                 Debug.LogWarning("SFX: " + name + " not found!");
                 return;
             }
-            sound.source.PlayOneShot(sound.clip, 1f);
+
+            SfxAudioSource.PlayOneShot(sound.clip);
         }
 
         public void PlayBGM(string musicName)
         {
             var sound = Array.Find(BGMs, sound => sound.name == musicName);
+            
             if (sound == null)
             {
                 Debug.LogWarning("BGM: " + musicName + " not found!");
                 return;
             }
-            sound.source.Play();
+
+            BGMAudioSource.clip = sound.clip;
+            BGMAudioSource.Play();
         }
         
-        public void StopAllBGM()
+        public void StopBGM()
         {
-            if (BGMs.Length < 1) return; 
-            foreach (var bgm in BGMs)
-            {
-                bgm.source.Stop();
-            }
+            BGMAudioSource.Stop();
         }
         
         public void SetBGMVolume(float volume)
         {
             BGMVolume = volume;
-            foreach (var sound in BGMs)
-            {
-                sound.source.volume = volume;
-            }
+            BGMAudioSource.volume = BGMVolume;
         }
 
         public void SetSFXVolume(float volume)
         {
             SFXVolume = volume;
-            foreach (var sound in SFXs)
-            {
-                sound.source.volume = volume;
-            }
+            SfxAudioSource.volume = SFXVolume;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Manager;
 using Manager.Interface;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Bootstrapper
 {
@@ -14,9 +15,11 @@ namespace Bootstrapper
 
         private void Start()
         {
-            var soundManager = Instantiate(SoundManagerPrefab, transform, false);
+            var soundManager = Instantiate(SoundManagerPrefab, Singletons.transform, false);
 
             Singletons.Init(soundManager);
+
+            SceneManager.LoadScene("1.Scenes/Menu");
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         void PlaySFX(string soundName);
         void PlayBGM(string musicName);
-        void StopAllBGM();
+        void StopBGM();
         void SetBGMVolume(float volume);
         void SetSFXVolume(float volume);
         float BGMVolume { get; }

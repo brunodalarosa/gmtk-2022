@@ -13,8 +13,5 @@ namespace Data
         public float volume;
 
         public bool loop;
-
-        [HideInInspector]
-        public AudioSource source;
     }
 }

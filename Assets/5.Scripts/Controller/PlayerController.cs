@@ -8,7 +8,7 @@ namespace Controller
     public class PlayerController : MonoBehaviour
     {
         public PlayerData PlayerData { get; private set; }
-        public DiceBag DiceBag { get; private set; }
+        private DiceBag DiceBag { get; set; }
 
         public int DiceQtd => DiceBag.DiceQtd;
 
@@ -22,9 +22,21 @@ namespace Controller
             
             // Inventário inicial de dados do jogador
             DiceBag.AddNewDice(DiceType.D6);
+            PlayerData.SetDiceQtd(DiceQtd);
             
             // Set the player damage
             _playerAttackCollider.SetDamage(PlayerData.AttackDamage);
+        }
+
+        public void AddDice(DiceType diceType)
+        {
+            DiceBag.AddNewDice(diceType);
+            PlayerData.SetDiceQtd(DiceQtd);
+        }
+        
+        public Dice GetDiceOfType(DiceType diceType)
+        {
+            return DiceBag.GetDiceOfType(diceType);
         }
 
         public void ApplyDiceRoll(RollType rollType, int rollValue)
@@ -91,6 +103,7 @@ namespace Controller
         public void DiscardDice(Dice dice)
         {
             DiceBag.RemoveDice(dice);
+            PlayerData.SetDiceQtd(DiceQtd);
         }
 
         public void AddScore(int enemyScore)

@@ -50,7 +50,7 @@ namespace Manager
         public void StopBGMUsingInstance()
         {
             if (Singletons.Instance.SoundManager != null) 
-                Singletons.Instance.SoundManager.StopAllBGM();
+                Singletons.Instance.SoundManager.StopBGM();
         }
     }
 }

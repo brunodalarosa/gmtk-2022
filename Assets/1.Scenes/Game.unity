@@ -9562,6 +9562,56 @@ PrefabInstance:
       propertyPath: pauseMenuPanel
       value: 
       objectReference: {fileID: 1977865717}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <Canvas>k__BackingField
+      value: 
+      objectReference: {fileID: 1478332478}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <Rngesus>k__BackingField
+      value: 
+      objectReference: {fileID: 896499095}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <GeneralUi>k__BackingField
+      value: 
+      objectReference: {fileID: 1008189454}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <DiceQtdLabel>k__BackingField
+      value: 
+      objectReference: {fileID: 1398679964}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <EnemiesParent>k__BackingField
+      value: 
+      objectReference: {fileID: 1488010129}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <AnimatorRngesus>k__BackingField
+      value: 
+      objectReference: {fileID: 2120109290}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <PlayerController>k__BackingField
+      value: 
+      objectReference: {fileID: 1240543918}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <DebugButtonParent>k__BackingField
+      value: 
+      objectReference: {fileID: 357066328}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <DebugGetAd6Button>k__BackingField
+      value: 
+      objectReference: {fileID: 58813525}
+    - target: {fileID: 8623750164805455474, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <RollDiceMenuOverlay>k__BackingField
+      value: 
+      objectReference: {fileID: 1361552079}
     - target: {fileID: 8623750164805455475, guid: 24671c8e9ef3a7948b38f62cac3787db,
         type: 3}
       propertyPath: m_Name
@@ -9632,6 +9682,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1110483437}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 1693126010}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.data[2]
+      value: 
+      objectReference: {fileID: 1973639568}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.data[3]
+      value: 
+      objectReference: {fileID: 895488382}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.data[4]
+      value: 
+      objectReference: {fileID: 970192327}
+    - target: {fileID: 8623750164805455478, guid: 24671c8e9ef3a7948b38f62cac3787db,
+        type: 3}
+      propertyPath: <SpawnPoints>k__BackingField.Array.data[5]
+      value: 
+      objectReference: {fileID: 489399583}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24671c8e9ef3a7948b38f62cac3787db, type: 3}
 --- !u!114 &1008531735 stripped
@@ -9655,7 +9740,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563fd1f47ef970e4ba3e0902bff1c756, type: 3}
+  m_Script: {fileID: 11500000, guid: 2729bab9bfddca54f9325da1404826de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1027196155

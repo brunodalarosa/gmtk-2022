@@ -22,5 +22,10 @@
             Dodges = 10;
             Score = 0;
         }
+
+        public void SetDiceQtd(int diceQtd)
+        {
+            DiceQtd = diceQtd;
+        }
     }
 }

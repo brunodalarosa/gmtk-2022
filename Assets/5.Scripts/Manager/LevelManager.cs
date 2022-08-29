@@ -13,9 +13,9 @@ using UnityEngine.UI;
 
 namespace Manager
 {
-    public class LevelController : MonoBehaviour, ILevelManager
+    public class LevelManager : MonoBehaviour, ILevelManager
     {
-        public static LevelController Instance;
+        public static LevelManager Instance;
         
         [field:Header("God Stuff")]
         [field:SerializeField] private Rngesus Rngesus { get; set; }
@@ -81,7 +81,6 @@ namespace Manager
             DebugButtonParent.gameObject.SetActive(false);
             
             GeneralUi.Refresh(PlayerController.PlayerData, UiElementType.none, 0);
-            UpdateDiceMenuButtonState();
             StartNewLevel();
         }
 
@@ -166,7 +165,6 @@ namespace Manager
             GeneralUi.transform.SetParent(RollDiceMenuOverlay.Content.transform, true);
             GeneralUi.RollDice();
 
-            UpdateDiceMenuButtonState();
             GeneralUi.Refresh(PlayerController.PlayerData, UiElementType.counterD6, -1);
         }
 
@@ -214,7 +212,7 @@ namespace Manager
         {
             try
             {
-                return PlayerController.DiceBag.GetDiceOfType(diceType);
+                return PlayerController.GetDiceOfType(diceType);
             }
             catch (Exception e)
             {
@@ -223,16 +221,15 @@ namespace Manager
             }
         }
 
-        public void UpdateDiceMenuButtonState()
-        {
-            DiceQtdLabel.text = PlayerController.DiceQtd.ToString();
-        }
+        // public void UpdateDiceMenuButtonState()
+        // {
+        //     DiceQtdLabel.text = PlayerController.DiceQtd.ToString();
+        // }
         
         public void AddD6ToPlayer()
         {
             Singletons.Instance.SoundManager.PlaySFX("walk-1");
-            PlayerController.DiceBag.AddNewDice(DiceType.D6);
-            UpdateDiceMenuButtonState();
+            PlayerController.AddDice(DiceType.D6);
             GeneralUi.Refresh(PlayerController.PlayerData, UiElementType.counterD6, 1);
         }
 
@@ -249,7 +246,7 @@ namespace Manager
         {
             if (Input.GetKeyDown(KeyCode.Tab) && !GamePaused)
             {
-                if(PlayerController.DiceQtd > 0)
+                if (PlayerController.DiceQtd > 0)
                     EnterDiceMenu();
                 else
                 {

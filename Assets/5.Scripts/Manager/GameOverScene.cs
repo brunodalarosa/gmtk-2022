@@ -14,7 +14,7 @@ namespace Manager
         private void Start()
         {
             TryAgainButton.onClick.AddListener(ReturnToHome);
-            FinalScore.text = LevelController.Instance.PlayerController.PlayerData.Score.ToString();
+            FinalScore.text = LevelManager.Instance.PlayerController.PlayerData.Score.ToString();
             Singletons.Instance.SoundManager.PlaySFX("lose");
         }
         
